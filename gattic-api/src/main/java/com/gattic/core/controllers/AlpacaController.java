@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.gattic.core.error.exceptions.AlpacaException;
+
 import io.github.mainstringargs.alpaca.AlpacaAPI;
 import io.github.mainstringargs.alpaca.enums.OrderStatus;
 import io.github.mainstringargs.alpaca.rest.exception.AlpacaAPIRequestException;
@@ -32,16 +34,14 @@ public class AlpacaController {
      * @return List of alpaca orders
      */
     @RequestMapping("/orders/all")
-    public List<Order> getOrders(){
+    public List<Order> getOrders() throws Exception {
     	
 		try {
 			AlpacaAPI alpacaAPI = new AlpacaAPI();
 			return alpacaAPI.getOrders(OrderStatus.ALL, null, null, null, null, null);
 		} catch (AlpacaAPIRequestException e) {
-			e.printStackTrace();
+			throw new AlpacaException("Cannot reach alpaca.  Check credentials in alpaca.properties", e);
 		}
-		
-		return null;
     }
     
     /**
@@ -49,16 +49,14 @@ public class AlpacaController {
      * @return List of alpaca orders
      */
     @RequestMapping("/orders/open")
-    public List<Order> getOpenOrders(){
+    public List<Order> getOpenOrders() throws Exception {
     	
 		try {
 			AlpacaAPI alpacaAPI = new AlpacaAPI();
 			return alpacaAPI.getOrders(OrderStatus.OPEN, null, null, null, null, null);
 		} catch (AlpacaAPIRequestException e) {
-			e.printStackTrace();
+			throw new AlpacaException("Cannot reach alpaca.  Check credentials in alpaca.properties", e);
 		}
-		
-		return null;
     }
     
     /**
@@ -66,15 +64,13 @@ public class AlpacaController {
      * @return List of alpaca orders
      */
     @RequestMapping("/orders/closed")
-    public List<Order> getClosedOrders(){
+    public List<Order> getClosedOrders() throws Exception {
     	
 		try {
 			AlpacaAPI alpacaAPI = new AlpacaAPI();
 			return alpacaAPI.getOrders(OrderStatus.CLOSED, null, null, null, null, null);
 		} catch (AlpacaAPIRequestException e) {
-			e.printStackTrace();
+			throw new AlpacaException("Cannot reach alpaca.  Check credentials in alpaca.properties", e);
 		}
-		
-		return null;
     }
 }
