@@ -31,12 +31,46 @@ public class AlpacaController {
      * Get all orders
      * @return List of alpaca orders
      */
-    @RequestMapping("/orders")
+    @RequestMapping("/orders/all")
     public List<Order> getOrders(){
     	
 		try {
 			AlpacaAPI alpacaAPI = new AlpacaAPI();
 			return alpacaAPI.getOrders(OrderStatus.ALL, null, null, null, null, null);
+		} catch (AlpacaAPIRequestException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+    }
+    
+    /**
+     * Get open orders
+     * @return List of alpaca orders
+     */
+    @RequestMapping("/orders/open")
+    public List<Order> getOpenOrders(){
+    	
+		try {
+			AlpacaAPI alpacaAPI = new AlpacaAPI();
+			return alpacaAPI.getOrders(OrderStatus.OPEN, null, null, null, null, null);
+		} catch (AlpacaAPIRequestException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+    }
+    
+    /**
+     * Get closed orders
+     * @return List of alpaca orders
+     */
+    @RequestMapping("/orders/closed")
+    public List<Order> getClosedOrders(){
+    	
+		try {
+			AlpacaAPI alpacaAPI = new AlpacaAPI();
+			return alpacaAPI.getOrders(OrderStatus.CLOSED, null, null, null, null, null);
 		} catch (AlpacaAPIRequestException e) {
 			e.printStackTrace();
 		}

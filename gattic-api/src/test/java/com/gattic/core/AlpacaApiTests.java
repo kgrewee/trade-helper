@@ -127,7 +127,7 @@ public class AlpacaApiTests {
 	/**
 	 * Performs a buy
 	 */
-	@Test
+	//@Test
 	public void buyTest() {
 		try {
 			Order aaplLimitOrder = alpacaAPI.requestNewLimitOrder(aaplTicker, 1, OrderSide.BUY, OrderTimeInForce.DAY,
