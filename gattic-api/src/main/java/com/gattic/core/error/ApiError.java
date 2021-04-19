@@ -1,5 +1,7 @@
 package com.gattic.core.error;
 
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.time.LocalDateTime;
 
 import org.springframework.http.HttpStatus;
@@ -8,49 +10,47 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class ApiError {
 
-    private HttpStatus status;
+    private int status;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
-    private LocalDateTime timestamp;
+    private Timestamp timestamp;
     private String message;
-    private String debugMessage;
 
     private ApiError() {
-        timestamp = LocalDateTime.now();
+        timestamp = Timestamp.from(Instant.now());
     }
 
     public ApiError(HttpStatus status) {
         this();
-        this.status = status;
+        this.status = Integer.parseInt(status.toString());
     }
 
     public ApiError(HttpStatus status, Throwable ex) {
         this();
-        this.status = status;
+        this.status = Integer.parseInt(status.toString());
         this.message = ex.getMessage();
-        this.debugMessage = ex.getCause().getMessage();
     }
 
     public ApiError(HttpStatus status, String message, Throwable ex) {
         this();
-        this.status = status;
+        this.status = Integer.parseInt(status.toString());
         this.message = message;
-        this.debugMessage = ex.getCause().getMessage();
     }
 
 
-	public HttpStatus getStatus() {
+	public int getStatus() {
 		return status;
 	}
 
-	public void setStatus(HttpStatus status) {
+	public void setStatus(int status) {
 		this.status = status;
 	}
 
-	public LocalDateTime getTimestamp() {
+
+	public Timestamp getTimestamp() {
 		return timestamp;
 	}
 
-	public void setTimestamp(LocalDateTime timestamp) {
+	public void setTimestamp(Timestamp timestamp) {
 		this.timestamp = timestamp;
 	}
 
@@ -60,13 +60,5 @@ public class ApiError {
 
 	public void setMessage(String message) {
 		this.message = message;
-	}
-
-	public String getDebugMessage() {
-		return debugMessage;
-	}
-
-	public void setDebugMessage(String debugMessage) {
-		this.debugMessage = debugMessage;
 	}
 }

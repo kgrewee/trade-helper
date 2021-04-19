@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gattic.core.error.exceptions.AlpacaException;
+import com.gattic.core.error.exceptions.MissingPropertiesFileException;
 
 import io.github.mainstringargs.alpaca.AlpacaAPI;
 import io.github.mainstringargs.alpaca.enums.OrderStatus;
@@ -41,6 +42,8 @@ public class AlpacaController {
 			return alpacaAPI.getOrders(OrderStatus.ALL, null, null, null, null, null);
 		} catch (AlpacaAPIRequestException e) {
 			throw new AlpacaException("Cannot reach alpaca.  Check credentials in alpaca.properties", e);
+		} catch (Exception e) {
+			throw new MissingPropertiesFileException("Cannot find alpaca.properties", e);
 		}
     }
     
@@ -56,6 +59,8 @@ public class AlpacaController {
 			return alpacaAPI.getOrders(OrderStatus.OPEN, null, null, null, null, null);
 		} catch (AlpacaAPIRequestException e) {
 			throw new AlpacaException("Cannot reach alpaca.  Check credentials in alpaca.properties", e);
+		}catch (Exception e) {
+			throw new MissingPropertiesFileException("Cannot find alpaca.properties", e);
 		}
     }
     
@@ -71,6 +76,8 @@ public class AlpacaController {
 			return alpacaAPI.getOrders(OrderStatus.CLOSED, null, null, null, null, null);
 		} catch (AlpacaAPIRequestException e) {
 			throw new AlpacaException("Cannot reach alpaca.  Check credentials in alpaca.properties", e);
+		} catch (Exception e) {
+			throw new MissingPropertiesFileException("Cannot find alpaca.properties", e);
 		}
     }
 }

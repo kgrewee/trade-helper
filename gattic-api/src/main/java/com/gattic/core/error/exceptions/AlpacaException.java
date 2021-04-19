@@ -7,7 +7,7 @@ public class AlpacaException extends Exception {
 	 * @param errorMessage Error message
 	 * @param err          Error
 	 */
-	public AlpacaException(String errorMessage, Throwable err) {
-		super(errorMessage, err);
+	public AlpacaException(String message, Throwable err) {
+		super(message, err);
 	}
 }
