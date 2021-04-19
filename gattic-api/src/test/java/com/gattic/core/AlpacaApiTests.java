@@ -6,7 +6,7 @@ import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Map;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import io.github.mainstringargs.alpaca.AlpacaAPI;
 import io.github.mainstringargs.alpaca.enums.AssetStatus;

@@ -1,1 +1,3 @@
 /target/
+/src/main/resources/alpaca.properties
+/src/main/resources/polygon.properties
