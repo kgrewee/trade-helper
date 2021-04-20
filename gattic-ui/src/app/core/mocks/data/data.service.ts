@@ -15,6 +15,10 @@ export class DataService {
     new Order("","",new Date(), new Date(), new Date(), new Date(),new Date(),new Date(),new Date(), new Date(), null, null, "1", "AAPL", "us_equity", 500, 500, "", "buy", "", 220, 200, 220, "filled", false, null),
     new Order("","",new Date(), new Date(), new Date(), new Date(),new Date(),new Date(),new Date(), new Date(), null, null, "1", "AAPL", "us_equity", 500, 500, "", "buy", "", 220, 200, 220, "filled", false, null),
     new Order("","",new Date(), new Date(), new Date(), new Date(),new Date(),new Date(),new Date(), new Date(), null, null, "1", "AAPL", "us_equity", 500, 500, "", "buy", "", 220, 200, 220, "filled", false, null),
+    new Order("","",new Date(), new Date(), new Date(), new Date(),new Date(),new Date(),new Date(), new Date(), null, null, "1", "AAPL", "us_equity", 500, 500, "", "buy", "", 220, 200, 220, "filled", false, null),
+    new Order("","",new Date(), new Date(), new Date(), new Date(),new Date(),new Date(),new Date(), new Date(), null, null, "1", "AAPL", "us_equity", 500, 500, "", "buy", "", 220, 200, 220, "filled", false, null),
+    new Order("","",new Date(), new Date(), new Date(), new Date(),new Date(),new Date(),new Date(), new Date(), null, null, "1", "AAPL", "us_equity", 500, 500, "", "buy", "", 220, 200, 220, "filled", false, null),
+    new Order("","",new Date(), new Date(), new Date(), new Date(),new Date(),new Date(),new Date(), new Date(), null, null, "1", "AAPL", "us_equity", 500, 500, "", "buy", "", 220, 200, 220, "filled", false, null),
     new Order("","",new Date(), new Date(), new Date(), new Date(),new Date(),new Date(),new Date(), new Date(), null, null, "1", "AAPL", "us_equity", 500, 500, "", "buy", "", 220, 200, 220, "filled", false, null)
   ];
 

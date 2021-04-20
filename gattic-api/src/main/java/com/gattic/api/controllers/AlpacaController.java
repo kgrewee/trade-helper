@@ -1,17 +1,21 @@
-package com.gattic.core.controllers;
+package com.gattic.api.controllers;
 
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gattic.core.error.exceptions.AlpacaException;
-import com.gattic.core.error.exceptions.MissingPropertiesFileException;
+import com.gattic.api.exceptions.AlpacaException;
+import com.gattic.api.exceptions.MissingPropertiesFileException;
 
-import io.github.mainstringargs.alpaca.AlpacaAPI;
-import io.github.mainstringargs.alpaca.enums.OrderStatus;
-import io.github.mainstringargs.alpaca.rest.exception.AlpacaAPIRequestException;
-import io.github.mainstringargs.domain.alpaca.order.Order;
+import net.jacobpeterson.abstracts.enums.SortDirection;
+import net.jacobpeterson.alpaca.AlpacaAPI;
+import net.jacobpeterson.alpaca.enums.order.OrderStatus;
+import net.jacobpeterson.alpaca.rest.exception.AlpacaAPIRequestException;
+import net.jacobpeterson.domain.alpaca.order.Order;
 
 /**
  * Alpaca rest endpoints
@@ -21,6 +25,8 @@ import io.github.mainstringargs.domain.alpaca.order.Order;
  */
 @RestController
 public class AlpacaController {
+
+	
     /**
      * Base url
      * @return Welcome message
@@ -39,7 +45,14 @@ public class AlpacaController {
     	
 		try {
 			AlpacaAPI alpacaAPI = new AlpacaAPI();
-			return alpacaAPI.getOrders(OrderStatus.ALL, null, null, null, null, null);
+			return alpacaAPI.getOrders(
+		            OrderStatus.ALL,
+		            null,
+		            ZonedDateTime.of(2020, 12, 23, 0, 0, 0, 0, ZoneId.of("America/New_York")),
+		            null,
+		            SortDirection.ASCENDING,
+		            true,
+		            Arrays.asList("AAPL", "TSLA"));
 		} catch (AlpacaAPIRequestException e) {
 			throw new AlpacaException("Cannot reach alpaca.  Check credentials in alpaca.properties", e);
 		} catch (Exception e) {
@@ -56,7 +69,14 @@ public class AlpacaController {
     	
 		try {
 			AlpacaAPI alpacaAPI = new AlpacaAPI();
-			return alpacaAPI.getOrders(OrderStatus.OPEN, null, null, null, null, null);
+			return alpacaAPI.getOrders(
+		            OrderStatus.OPEN,
+		            null,
+		            ZonedDateTime.of(2020, 12, 23, 0, 0, 0, 0, ZoneId.of("America/New_York")),
+		            null,
+		            SortDirection.ASCENDING,
+		            true,
+		            Arrays.asList("AAPL", "TSLA"));
 		} catch (AlpacaAPIRequestException e) {
 			throw new AlpacaException("Cannot reach alpaca.  Check credentials in alpaca.properties", e);
 		}catch (Exception e) {
@@ -73,7 +93,14 @@ public class AlpacaController {
     	
 		try {
 			AlpacaAPI alpacaAPI = new AlpacaAPI();
-			return alpacaAPI.getOrders(OrderStatus.CLOSED, null, null, null, null, null);
+			return alpacaAPI.getOrders(
+		            OrderStatus.CLOSED,
+		            null,
+		            ZonedDateTime.of(2020, 12, 23, 0, 0, 0, 0, ZoneId.of("America/New_York")),
+		            null,
+		            SortDirection.ASCENDING,
+		            true,
+		            Arrays.asList("AAPL", "TSLA"));
 		} catch (AlpacaAPIRequestException e) {
 			throw new AlpacaException("Cannot reach alpaca.  Check credentials in alpaca.properties", e);
 		} catch (Exception e) {

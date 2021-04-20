@@ -1,4 +1,4 @@
-package com.gattic.core.error.exceptions;
+package com.gattic.api.exceptions;
 
 public class AlpacaException extends Exception {
 	/**
