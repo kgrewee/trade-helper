@@ -13,6 +13,8 @@ import com.gattic.api.exceptions.MissingPropertiesFileException;
 
 import net.jacobpeterson.abstracts.enums.SortDirection;
 import net.jacobpeterson.alpaca.AlpacaAPI;
+import net.jacobpeterson.alpaca.enums.api.DataAPIType;
+import net.jacobpeterson.alpaca.enums.api.EndpointAPIType;
 import net.jacobpeterson.alpaca.enums.order.OrderStatus;
 import net.jacobpeterson.alpaca.rest.exception.AlpacaAPIRequestException;
 import net.jacobpeterson.domain.alpaca.order.Order;
@@ -25,7 +27,7 @@ import net.jacobpeterson.domain.alpaca.order.Order;
  */
 @RestController
 public class AlpacaController {
-
+	AlpacaAPI alpacaAPI = new AlpacaAPI("PKEQ7DXG6G15945PSMQ9", "JPurZbmMPwVKi2R54gOJrJbh45B9lBXaSUMRvVhg", EndpointAPIType.PAPER, DataAPIType.IEX);
 	
     /**
      * Base url
@@ -44,7 +46,6 @@ public class AlpacaController {
     public List<Order> getOrders() throws Exception {
     	
 		try {
-			AlpacaAPI alpacaAPI = new AlpacaAPI();
 			return alpacaAPI.getOrders(
 		            OrderStatus.ALL,
 		            null,
@@ -68,7 +69,6 @@ public class AlpacaController {
     public List<Order> getOpenOrders() throws Exception {
     	
 		try {
-			AlpacaAPI alpacaAPI = new AlpacaAPI();
 			return alpacaAPI.getOrders(
 		            OrderStatus.OPEN,
 		            null,
@@ -92,7 +92,6 @@ public class AlpacaController {
     public List<Order> getClosedOrders() throws Exception {
     	
 		try {
-			AlpacaAPI alpacaAPI = new AlpacaAPI();
 			return alpacaAPI.getOrders(
 		            OrderStatus.CLOSED,
 		            null,
