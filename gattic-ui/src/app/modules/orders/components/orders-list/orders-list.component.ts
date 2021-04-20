@@ -13,7 +13,7 @@ import { DataService } from 'src/app/core/mocks/data/data.service';
   styleUrls: ['./orders-list.component.scss']
 })
 export class OrdersListComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = ['submittedAt', 'filledAt', 'symbol', 'qty', "filledQty"];
+  displayedColumns: string[] = ['submittedAt', 'filledAt', 'symbol', 'assetClass', 'qty', 'filledQty', 'type', 'side', 'limitPrice', 'stopPrice', 'filledAvgPrice', 'status'];
   filteredAndPagedItems: Observable<Order[]>;
   resultsLength = 0;
   isLoadingResults = true;
@@ -22,7 +22,7 @@ export class OrdersListComponent implements OnInit, AfterViewInit {
   paginator!: MatPaginator;
   @ViewChild(MatSort)
   sort!: MatSort;
-  constructor(private orderService: OrderService, private dataService: DataService) {
+  constructor(private orderService: OrderService) {
     this.filteredAndPagedItems = of([]);
   }
 

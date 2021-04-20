@@ -1,4 +1,4 @@
-package com.gattic.api;
+package com.gattic.api.utilities;
 
 import java.io.FileInputStream;
 import java.util.Properties;

@@ -51,7 +51,7 @@ public class AlpacaController {
 		            null,
 		            ZonedDateTime.of(2020, 12, 23, 0, 0, 0, 0, ZoneId.of("America/New_York")),
 		            null,
-		            SortDirection.ASCENDING,
+		            null,
 		            true,
 		            Arrays.asList("AAPL", "TSLA"));
 		} catch (AlpacaAPIRequestException e) {
@@ -74,7 +74,7 @@ public class AlpacaController {
 		            null,
 		            ZonedDateTime.of(2020, 12, 23, 0, 0, 0, 0, ZoneId.of("America/New_York")),
 		            null,
-		            SortDirection.ASCENDING,
+		            null,
 		            true,
 		            Arrays.asList("AAPL", "TSLA"));
 		} catch (AlpacaAPIRequestException e) {
@@ -97,7 +97,7 @@ public class AlpacaController {
 		            null,
 		            ZonedDateTime.of(2020, 12, 23, 0, 0, 0, 0, ZoneId.of("America/New_York")),
 		            null,
-		            SortDirection.ASCENDING,
+		            null,
 		            true,
 		            Arrays.asList("AAPL", "TSLA"));
 		} catch (AlpacaAPIRequestException e) {
