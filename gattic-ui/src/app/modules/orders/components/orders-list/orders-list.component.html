@@ -1,1 +1,41 @@
-<p>orders-list works!</p>
+<div class="orders-container mat-elevation-z8">
+    <mat-progress-bar *ngIf="isLoadingResults" mode="indeterminate"></mat-progress-bar>
+
+    <div class="table-container">
+        <table mat-table [dataSource]="filteredAndPagedItems" class="table" matSort matSortActive="created" matSortDisableClear matSortDirection="desc" (matSortChange)="resetPaging()">
+            <ng-container matColumnDef="submittedAt">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>Submitted At</th>
+                <td mat-cell *matCellDef="let row">{{row.submittedAt}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="filledAt">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>Filled At</th>
+                <td mat-cell *matCellDef="let row">{{row.filledAt}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="symbol">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>Symbol</th>
+                <td mat-cell *matCellDef="let row">{{row.symbol}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="qty">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
+                    Quantity
+                </th>
+                <td mat-cell *matCellDef="let row">{{row.qty}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="filledQty">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
+                    Filled Quantity
+                </th>
+                <td mat-cell *matCellDef="let row">{{row.filledQty}}</td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+
+    <mat-paginator class="paginator" [length]="resultsLength" [pageSize]="30"></mat-paginator>
+</div>
