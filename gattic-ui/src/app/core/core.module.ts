@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HeaderInterceptor } from './interceptors/header/header.interceptor';
 
 
 @NgModule({
@@ -10,8 +13,17 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     MatIconModule,
-    RouterModule
+    RouterModule,
+    MatTooltipModule,
+    HttpClientModule
   ],
-  exports: [HeaderComponent]
+  exports: [HeaderComponent],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HeaderInterceptor,
+      multi: true
+    }
+  ]
 })
 export class CoreModule { }
