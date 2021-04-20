@@ -35,7 +35,7 @@ export class OrdersListComponent implements OnInit, AfterViewInit {
         startWith({}),
         delay(0),
         switchMap(() => {
-          return this.dataService.getOrders();
+          return this.orderService.getAll();
         }),
         map(data => {
           this.isLoadingResults = false;

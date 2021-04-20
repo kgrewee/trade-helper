@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HeaderInterceptor } from './interceptors/header/header.interceptor';
+import { AuthInterceptor } from './interceptors/auth/auth.interceptor';
 
 
 @NgModule({
@@ -22,6 +23,11 @@ import { HeaderInterceptor } from './interceptors/header/header.interceptor';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HeaderInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
       multi: true
     }
   ]
