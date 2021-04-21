@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { Order, OrderAdapter } from 'src/app/shared/models/order';
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { ApiErrorHandler } from '../../error/error-handler';
 import { environment } from 'src/environments/environment';
+import { ErrorHandlerService } from '../../services/error/error-handler.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,8 @@ export class OrderService {
   
   constructor(
     private http: HttpClient,
-    private adapter: OrderAdapter) {
+    private adapter: OrderAdapter,
+    private errorHandler: ErrorHandlerService) {
   }
 
   getAll(): Observable<Order[]> {
@@ -22,7 +23,7 @@ export class OrderService {
       .pipe(
         map((data: any[]) => data.map((item) => this.adapter.adapt(item)))
       ).pipe(
-        catchError(ApiErrorHandler.handle)
+        catchError(this.errorHandler.handle)
       );
   }
 
@@ -31,7 +32,7 @@ export class OrderService {
       .pipe(
         map((data: any[]) => data.map((item) => this.adapter.adapt(item)))
       ).pipe(
-        catchError(ApiErrorHandler.handle)
+        catchError(this.errorHandler.handle)
       );
   }
 
@@ -40,7 +41,7 @@ export class OrderService {
       .pipe(
         map((data: any[]) => data.map((item) => this.adapter.adapt(item)))
       ).pipe(
-        catchError(ApiErrorHandler.handle)
+        catchError(this.errorHandler.handle)
       );
   }
 }

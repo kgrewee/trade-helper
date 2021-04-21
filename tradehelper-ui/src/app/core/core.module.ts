@@ -9,6 +9,7 @@ import { HeaderInterceptor } from './interceptors/header/header.interceptor';
 import { AuthInterceptor } from './interceptors/auth/auth.interceptor';
 
 
+
 @NgModule({
   declarations: [HeaderComponent],
   imports: [
@@ -16,7 +17,7 @@ import { AuthInterceptor } from './interceptors/auth/auth.interceptor';
     MatIconModule,
     RouterModule,
     MatTooltipModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   exports: [HeaderComponent],
   providers: [

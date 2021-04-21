@@ -25,7 +25,8 @@ $tradehelper-theme: mat-light-theme(( color: ( primary: $tradehelper-primary, ac
 
 @import "dark-theme";
 .header {
-    position: absolute;
+    position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
     right: 0;
