@@ -46,10 +46,11 @@ $tradehelper-theme: mat-light-theme(( color: ( primary: $tradehelper-primary, ac
 
 h1 {
     color: $accent;
+    text-align: center;
 }
 
 h2 {
-    color: $white;
+    color: #d1d1d1;
 }
 
 body {
@@ -93,4 +94,8 @@ input {
 
 .form-container {
     padding: 20px;
+}
+
+.green {
+    color: $green;
 }
