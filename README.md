@@ -23,7 +23,7 @@ Make algo-trading easier with a platform to view more descriptive information ab
 - npm & nodeJS https://www.npmjs.com/get-npm
 - AngularCLI https://angular.io/cli
 - OpenJDK11 https://openjdk.java.net/install/
-- Maven https://openjdk.java.net/install/, https://www.baeldung.com/install-maven-on-windows-linux-mac
+- Maven https://maven.apache.org/install.html, https://www.baeldung.com/install-maven-on-windows-linux-mac
 
 ## Installation
 
