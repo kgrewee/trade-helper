@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.tradehelper.api.exceptions.AlpacaException;
 import com.tradehelper.api.exceptions.MissingPropertiesFileException;
 
-import net.jacobpeterson.abstracts.enums.SortDirection;
 import net.jacobpeterson.alpaca.AlpacaAPI;
 import net.jacobpeterson.alpaca.enums.api.DataAPIType;
 import net.jacobpeterson.alpaca.enums.api.EndpointAPIType;

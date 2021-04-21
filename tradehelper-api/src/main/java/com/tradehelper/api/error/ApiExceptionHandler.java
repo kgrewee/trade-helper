@@ -20,6 +20,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice
 public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 	
+	@SuppressWarnings("unused")
 	private static Logger LOGGER = LogManager.getLogger(ApiExceptionHandler.class.getName());
 	
 	@ExceptionHandler(Throwable.class)
