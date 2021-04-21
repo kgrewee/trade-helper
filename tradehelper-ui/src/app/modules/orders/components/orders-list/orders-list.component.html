@@ -52,11 +52,6 @@
                 <td mat-cell *matCellDef="let row">{{row.limitPrice}}</td>
             </ng-container>
 
-            <ng-container matColumnDef="stopPrice">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>Stop Price</th>
-                <td mat-cell *matCellDef="let row">{{row.stopPrice}}</td>
-            </ng-container>
-
             <ng-container matColumnDef="filledAvgPrice">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>Filled Avg Price</th>
                 <td mat-cell *matCellDef="let row">{{row.filledAvgPrice}}</td>

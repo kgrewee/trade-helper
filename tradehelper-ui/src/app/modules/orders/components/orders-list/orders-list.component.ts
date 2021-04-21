@@ -13,7 +13,7 @@ import { DataService } from 'src/app/core/mocks/data/data.service';
   styleUrls: ['./orders-list.component.scss']
 })
 export class OrdersListComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = ['submittedAt', 'filledAt', 'symbol', 'assetClass', 'qty', 'filledQty', 'type', 'side', 'limitPrice', 'stopPrice', 'filledAvgPrice', 'status'];
+  displayedColumns: string[] = ['status', 'submittedAt', 'filledAt', 'symbol', 'assetClass', 'qty', 'filledQty', 'type', 'side', 'limitPrice', 'filledAvgPrice'];
   filteredAndPagedItems: Observable<Order[]>;
   resultsLength = 0;
   isLoadingResults = true;
