@@ -25,7 +25,7 @@ TradeHelper consists of an Angular UI with a Java RestAPI as a data source.  Bot
 Backend
 
 1. Start in the repo root directory
-2. 'cd tradehelper-api/' - Navigate to TradeHelper API directory
+2. *cd tradehelper-api/* - Navigate to TradeHelper API directory
 3. 'mvn clean install' - Build jar to the target/ directory
 4. 'cd target/' - Navigate to the target directory
 5. 'java -jar tradehelper-api-0.0.1-SNAPSHOT.jar' - Run the jar to start the server
