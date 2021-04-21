@@ -9,17 +9,17 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$gattic-ui-primary: mat-palette($mat-indigo);
-$gattic-ui-accent: mat-palette($mat-pink, A200, A100, A400);
+$trade-helper-primary: mat-palette($mat-indigo);
+$trade-helper-accent: mat-palette($mat-pink, A200, A100, A400);
 // The warn palette is optional (defaults to red).
-$gattic-ui-warn: mat-palette($mat-red);
+$trade-helper-warn: mat-palette($mat-red);
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$gattic-ui-theme: mat-light-theme(( color: ( primary: $gattic-ui-primary, accent: $gattic-ui-accent, warn: $gattic-ui-warn, )));
+$trade-helper-theme: mat-light-theme(( color: ( primary: $trade-helper-primary, accent: $trade-helper-accent, warn: $trade-helper-warn, )));
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include angular-material-theme($gattic-ui-theme);
+@include angular-material-theme($trade-helper-theme);
 
 /* You can add global styles to this file, and also import other style files */
 
