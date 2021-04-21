@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FileService } from 'src/app/core/services/file/file.service';
 
 @Component({
   selector: 'app-settings',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SettingsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private fileService: FileService) { }
 
   ngOnInit(): void {
   }
 
+  save() { this.fileService.save.next(true) }
+
+  reset() {}
 }

@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { MatDividerModule } from '@angular/material/divider';
     MatIconModule,
     FormsModule,
     ReactiveFormsModule,
-    MatDividerModule
+    MatDividerModule,
+    MatTooltipModule
   ]
 })
 export class SettingsModule { }

@@ -99,3 +99,18 @@ input {
 .green {
     color: $green;
 }
+
+.export-button {
+    color: white;
+    background-color: $nav-background-50;
+    float: right;
+}
+
+.export-button:hover {
+    background-color: $nav-background;
+}
+
+.save-button {
+    background-color: rgb(39, 202, 39) !important;
+    color: black !important;
+}

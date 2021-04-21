@@ -1,0 +1,35 @@
+    // Mat Form Field
+     ::ng-deep .mat-form-field {
+        .mat-input-element {
+            color: #5c6061;
+        }
+        .mat-form-field-label {
+            color: white;
+        }
+        .mat-form-field-underline {
+            background-color: #5c6061;
+        }
+        .mat-form-field-ripple {
+            background-color: #5c6061;
+        }
+        .mat-form-field-required-marker {
+            color: #5c6061;
+        }
+    }
+    
+     ::ng-deep .mat-form-field.mat-focused {
+        .mat-form-field-label {
+            color: white;
+        }
+        .mat-form-field-ripple {
+            background-color: white;
+        }
+        .mat-form-field-required-marker {
+            color: white;
+        }
+        .mat-input-element {
+            color: white;
+        }
+    }
+    
+    // End Mat Form Field
