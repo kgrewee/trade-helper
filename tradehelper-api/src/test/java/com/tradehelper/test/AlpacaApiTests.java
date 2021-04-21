@@ -1,4 +1,4 @@
-package com.gattic.api;
+package com.tradehelper.test;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.Arrays;
@@ -18,6 +18,7 @@ import net.jacobpeterson.domain.alpaca.asset.Asset;
 import net.jacobpeterson.domain.alpaca.marketdata.historical.bar.BarsResponse;
 import net.jacobpeterson.domain.alpaca.order.CancelledOrder;
 import net.jacobpeterson.domain.alpaca.order.Order;
+import net.jacobpeterson.domain.alpaca.position.Position;
 
 public class AlpacaApiTests {
 	// This logs into Alpaca using the alpaca.properties file on the classpath.
@@ -34,8 +35,8 @@ public class AlpacaApiTests {
 		try {
 			Account alpacaAccount = alpacaAPI.getAccount();
 
-			System.out.println("\n\nAccount Information:");
-			System.out.println("\t" + alpacaAccount.toString().replace(",", ",\n\t"));
+			//System.out.println("\n\nAccount Information:");
+			//System.out.println("\t" + alpacaAccount.toString().replace(",", ",\n\t"));
 		} catch (AlpacaAPIRequestException e) {
 			e.printStackTrace();
 		}
@@ -47,7 +48,8 @@ public class AlpacaApiTests {
 	@Test
 	public void openPositionTest() {
 		try {
-			System.out.println("\n\nOpen Positions: \n\t" + alpacaAPI.getOpenPositions());
+			List<Position> positions = alpacaAPI.getOpenPositions();
+			//System.out.println("\n\nOpen Positions: \n\t" + positions);
 		} catch (AlpacaAPIRequestException e) {
 			e.printStackTrace();
 		}
@@ -59,14 +61,9 @@ public class AlpacaApiTests {
 	@Test
 	public void assetsTest() {
 		try {
-			System.out.println("\n\nAssets: \n");
-			int i = 0;
+			//System.out.println("\n\nAssets: \n");
 			for(Asset asset: alpacaAPI.getAssets(AssetStatus.ACTIVE, null)) {
-				System.out.println("\t" + asset.toString().replace(",", ",\n\t") + "\n");
-				i++;
-				if(i > 3) {
-					break;
-				}
+				
 			}
 		} catch (AlpacaAPIRequestException e) {
 			e.printStackTrace();
@@ -119,10 +116,10 @@ public class AlpacaApiTests {
 		    
 		    // Cancel all open orders
 		    List<CancelledOrder> cancelledOrders = alpacaAPI.cancelAllOrders();
-		    for (CancelledOrder cancelledOrder : cancelledOrders) {
+		    /*for (CancelledOrder cancelledOrder : cancelledOrders) {
 		        System.out.println("Cancelled Order: " + cancelledOrder.getOrder());
 		    }
-		    
+		    */
 		    // Request a new fractional market order for 0.5 shares of GME 
 		    alpacaAPI.requestNewFractionalMarketOrder("GME", 0.5, OrderSide.BUY);
 		    // Request a new notional market order for $25 worth of GME shares
@@ -147,7 +144,7 @@ public class AlpacaApiTests {
 		            null,
 		            null,
 		            BarsTimeFrame.HOUR);
-		    appleBarsResponse.getBars().forEach(System.out::println);
+		    //appleBarsResponse.getBars().forEach(System.out::println);
 		} catch (AlpacaAPIRequestException e) {
 		    e.printStackTrace();
 		}
@@ -156,14 +153,14 @@ public class AlpacaApiTests {
 	/**
 	 * Performs a buy
 	 */
-	// @Test
+	@Test
 	public void buyTest() {
 		try {
 			Order aaplLimitOrder = alpacaAPI.requestNewLimitOrder(aaplTicker, 1, OrderSide.BUY, OrderTimeInForce.DAY,
 					201.30, true);
 
-			System.out.println("\n\nNew AAPL Order:");
-			System.out.println("\t" + aaplLimitOrder.toString().replace(",", ",\n\t"));
+			//System.out.println("\n\nNew AAPL Order:");
+			//System.out.println("\t" + aaplLimitOrder.toString().replace(",", ",\n\t"));
 		} catch (AlpacaAPIRequestException e) {
 			e.printStackTrace();
 		}
