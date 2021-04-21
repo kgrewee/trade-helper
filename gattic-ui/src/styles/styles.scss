@@ -30,7 +30,7 @@ $gattic-ui-theme: mat-light-theme(( color: ( primary: $gattic-ui-primary, accent
     top: 0;
     right: 0;
     height: 60px;
-    background-color: $nav-background;
+    background: $nav-gradient;
     color: $white;
     display: flex;
     flex-direction: row;
@@ -46,6 +46,10 @@ $gattic-ui-theme: mat-light-theme(( color: ( primary: $gattic-ui-primary, accent
 
 h1 {
     color: $accent;
+}
+
+h2 {
+    color: $white;
 }
 
 body {
@@ -65,4 +69,28 @@ body {
 .route-active mat-icon {
     margin-top: -2px;
     color: $accent !important;
+}
+
+mat-divider {
+    width: 100%;
+    background-color: $nav-background;
+}
+
+// Form styles
+.form-field,
+input {
+    width: 250px;
+    font-size: large;
+}
+
+.form-field {
+    margin-right: 30px;
+}
+
+.form-field button {
+    color: $red;
+}
+
+.form-container {
+    padding: 20px;
 }

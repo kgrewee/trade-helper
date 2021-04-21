@@ -1,0 +1,25 @@
+.settings-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.button-container button {
+    color: white;
+    background-color: #4c4d4f;
+    width: 150px;
+    border-radius: 0;
+    margin: 10px;
+}
+
+.save-button {
+    background-color: rgb(39, 202, 39) !important;
+    color: black !important;
+}

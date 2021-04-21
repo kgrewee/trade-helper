@@ -1,0 +1,36 @@
+<h2 class="live">Alpaca Live</h2>
+<mat-divider></mat-divider>
+<div class="form-container">
+    <mat-form-field class="form-field">
+        <mat-label>API Key</mat-label>
+        <input matInput type="text" [(ngModel)]="apikey">
+        <button mat-button *ngIf="apikey" matSuffix mat-icon-button aria-label="Clear" (click)="apikey=''">
+          <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+
+    <mat-form-field class="form-field">
+        <mat-label>Secret Key</mat-label>
+        <input matInput type="text" [(ngModel)]="secretkey">
+        <button mat-button *ngIf="secretkey" matSuffix mat-icon-button aria-label="Clear" (click)="secretkey=''">
+          <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+
+    <mat-form-field class="form-field">
+        <mat-label>Base API URL</mat-label>
+        <input matInput type="text" [(ngModel)]="baseapi">
+        <button mat-button *ngIf="baseapi" matSuffix mat-icon-button aria-label="Clear" (click)="baseapi=''">
+          <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+
+    <mat-form-field class="form-field">
+        <mat-label>Data API URL</mat-label>
+        <input matInput type="text" [(ngModel)]="dataapi">
+        <button mat-button *ngIf="dataapi" matSuffix mat-icon-button aria-label="Clear" (click)="dataapi=''">
+          <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+
+</div>

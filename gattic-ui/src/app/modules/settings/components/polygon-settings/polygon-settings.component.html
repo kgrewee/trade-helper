@@ -1,0 +1,20 @@
+<h2 class='polygon'>Polygon</h2>
+<mat-divider></mat-divider>
+<div class="form-container">
+    <mat-form-field class="form-field">
+        <mat-label>Base API URL</mat-label>
+        <input matInput type="text" [(ngModel)]="baseapi">
+        <button mat-button *ngIf="baseapi" matSuffix mat-icon-button aria-label="Clear" (click)="baseapi=''">
+          <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+
+    <mat-form-field class="form-field">
+        <mat-label>Server URL</mat-label>
+        <input matInput type="text" [(ngModel)]="serverurl">
+        <button mat-button *ngIf="serverurl" matSuffix mat-icon-button aria-label="Clear" (click)="serverurl=''">
+          <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+
+</div>
