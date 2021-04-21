@@ -29,7 +29,7 @@ Make algo-trading easier with a platform to view more descriptive information ab
 
 TradeHelper consists of an Angular UI with a Java RestAPI as a data source.  Both projects are found within this repository.
 
-**Backend**
+### Backend
 
 1. Start in the repo root directory
 2. Navigate to TradeHelper API directory
@@ -49,7 +49,7 @@ cd target/
 java -jar tradehelper-api-0.0.1-SNAPSHOT.jar
 ```
 
-**Frontend**
+### Frontend
 
 1. Start in the repo root directory
 2. Navigate to TradeHelper UI directory
