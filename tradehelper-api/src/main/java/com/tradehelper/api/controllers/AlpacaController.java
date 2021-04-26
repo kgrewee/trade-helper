@@ -31,7 +31,7 @@ public class AlpacaController {
      */
     @RequestMapping("/")
     public String index(){
-        return "Welcome to Gattic's Alpaca CLI";
+        return "Welcome to TradeHelper API";
     }
     
     /**
