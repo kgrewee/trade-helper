@@ -32,7 +32,7 @@ TradeHelper consists of an Angular User Interface with a Java RestAPI backend.  
 
 ### Properties
 
-TradeHelper's RestAPI requires various properties files to function.  If they are not created, the backend will fail build tests.
+TradeHelper's RestAPI requires various properties files to function.  If they are not created, the backend build will fail.
 ```
 - alpaca.properties
 - polygon.properties
