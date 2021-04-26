@@ -1,9 +1,6 @@
 #!/bin/bash
 
-# Build RestAPI
-
+./tradehelper-ui/install.sh
 ./tradehelper-api/install.sh
 
-# Build UI
 
-sudo ./tradehelper-ui/install.sh

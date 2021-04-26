@@ -26,9 +26,9 @@ Make algo-trading easier with a platform to view more descriptive information ab
 - OpenJDK11 https://openjdk.java.net/install/
 - Maven https://maven.apache.org/install.html, https://www.baeldung.com/install-maven-on-windows-linux-mac
 
-## Installation
+## Install & Run
 
-TradeHelper consists of an Angular UI with a Java RestAPI as a data source.  Both projects are found within this repository.
+TradeHelper consists of an Angular User Interface with a Java RestAPI backend.  Both projects are found within this repository.
 
 ### Properties
 
@@ -38,46 +38,25 @@ TradeHelper's RestAPI requires various properties files to function.  If they ar
 - polygon.properties
 ```
 
-**Properties files must be in src/main/resources**
+Properties files must be located in **src/main/resources**
 
 1. Navigate to src/main/resources and create a copy of the templates for each properties file
 2. Rename and fill with your credentials
 3. Properties files are copied to the same directory as the jar when performing an install
 4. The jar reads the properties files every rest call to allow users to change credentials without restarting the application
+5. Return to the repo root directory
 
-### RestAPI
+### Installation Script
 
-1. Start in the repo root directory
-2. Navigate to TradeHelper API directory
-``` 
-cd tradehelper-api/
+1. Run the install script
 ```
-3. Run install script
-``` 
-./install
-```
-4. Navigate to the target directory
-``` 
-cd target/
-```
-5. Run the jar to start the server
-``` 
-java -jar tradehelper-api-0.0.1-SNAPSHOT.jar
+./install.sh
 ```
 
-### Frontend
+### Run Script
 
-1. Start in the repo root directory
-2. Navigate to TradeHelper UI directory
-``` 
-cd tradehelper-ui
+1. Run the application
 ```
-3. Install dependencies
-``` 
-npm install
-```
-4. Run the frontend and open it in the browser
-``` 
-ng serve --open
+./run.sh
 ```
 
