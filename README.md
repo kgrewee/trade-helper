@@ -33,16 +33,16 @@ TradeHelper consists of an Angular UI with a Java RestAPI as a data source.  Bot
 ### Properties
 
 TradeHelper's RestAPI requires various properties files to function.  If they are not created, the backend will fail build tests.
-
+```
 - alpaca.properties
 - polygon.properties
+```
+
+**Properties files must be in src/main/resources**
 
 1. Navigate to src/main/resources and create a copy of the templates for each properties file
 2. Rename and fill with your credentials
 3. Properties files are copied to the same directory as the jar when performing an install
-```
-Properties files must be in src/main/resources
-```
 4. The jar reads the properties files every rest call to allow users to change credentials without restarting the application
 
 ### RestAPI
