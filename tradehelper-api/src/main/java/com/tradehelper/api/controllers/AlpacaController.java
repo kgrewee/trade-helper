@@ -10,10 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.tradehelper.api.exceptions.AlpacaException;
 import com.tradehelper.api.exceptions.MissingPropertiesFileException;
+import com.tradehelper.api.utilities.PropertiesUtility;
 
-import net.jacobpeterson.alpaca.AlpacaAPI;
-import net.jacobpeterson.alpaca.enums.api.DataAPIType;
-import net.jacobpeterson.alpaca.enums.api.EndpointAPIType;
 import net.jacobpeterson.alpaca.enums.order.OrderStatus;
 import net.jacobpeterson.alpaca.rest.exception.AlpacaAPIRequestException;
 import net.jacobpeterson.domain.alpaca.order.Order;
@@ -26,7 +24,6 @@ import net.jacobpeterson.domain.alpaca.order.Order;
  */
 @RestController
 public class AlpacaController {
-	AlpacaAPI alpacaAPI = new AlpacaAPI("PKEQ7DXG6G15945PSMQ9", "JPurZbmMPwVKi2R54gOJrJbh45B9lBXaSUMRvVhg", EndpointAPIType.PAPER, DataAPIType.IEX);
 	
     /**
      * Base url
@@ -34,7 +31,7 @@ public class AlpacaController {
      */
     @RequestMapping("/")
     public String index(){
-        return "Welcome to Gattic's Alpaca CLI";
+        return "Welcome to TradeHelper API";
     }
     
     /**
@@ -45,7 +42,7 @@ public class AlpacaController {
     public List<Order> getOrders() throws Exception {
     	
 		try {
-			return alpacaAPI.getOrders(
+			return PropertiesUtility.getAlpacaAPI().getOrders(
 		            OrderStatus.ALL,
 		            null,
 		            ZonedDateTime.of(2020, 12, 23, 0, 0, 0, 0, ZoneId.of("America/New_York")),
@@ -54,9 +51,9 @@ public class AlpacaController {
 		            true,
 		            Arrays.asList("AAPL", "TSLA"));
 		} catch (AlpacaAPIRequestException e) {
-			throw new AlpacaException("Cannot reach alpaca.  Check credentials in alpaca.properties", e);
+			throw new AlpacaException("Can't reach alpaca.  Check credentials in alpaca.properties", e);
 		} catch (Exception e) {
-			throw new MissingPropertiesFileException("Cannot find alpaca.properties", e);
+			throw new MissingPropertiesFileException("Can't find alpaca.properties", e);
 		}
     }
     
@@ -68,7 +65,7 @@ public class AlpacaController {
     public List<Order> getOpenOrders() throws Exception {
     	
 		try {
-			return alpacaAPI.getOrders(
+			return PropertiesUtility.getAlpacaAPI().getOrders(
 		            OrderStatus.OPEN,
 		            null,
 		            ZonedDateTime.of(2020, 12, 23, 0, 0, 0, 0, ZoneId.of("America/New_York")),
@@ -77,9 +74,9 @@ public class AlpacaController {
 		            true,
 		            Arrays.asList("AAPL", "TSLA"));
 		} catch (AlpacaAPIRequestException e) {
-			throw new AlpacaException("Cannot reach alpaca.  Check credentials in alpaca.properties", e);
+			throw new AlpacaException("Can't reach alpaca.  Check credentials in alpaca.properties", e);
 		}catch (Exception e) {
-			throw new MissingPropertiesFileException("Cannot find alpaca.properties", e);
+			throw new MissingPropertiesFileException("Can't find alpaca.properties", e);
 		}
     }
     
@@ -91,7 +88,7 @@ public class AlpacaController {
     public List<Order> getClosedOrders() throws Exception {
     	
 		try {
-			return alpacaAPI.getOrders(
+			return PropertiesUtility.getAlpacaAPI().getOrders(
 		            OrderStatus.CLOSED,
 		            null,
 		            ZonedDateTime.of(2020, 12, 23, 0, 0, 0, 0, ZoneId.of("America/New_York")),
@@ -100,9 +97,9 @@ public class AlpacaController {
 		            true,
 		            Arrays.asList("AAPL", "TSLA"));
 		} catch (AlpacaAPIRequestException e) {
-			throw new AlpacaException("Cannot reach alpaca.  Check credentials in alpaca.properties", e);
+			throw new AlpacaException("Can't reach alpaca.  Check credentials in alpaca.properties", e);
 		} catch (Exception e) {
-			throw new MissingPropertiesFileException("Cannot find alpaca.properties", e);
+			throw new MissingPropertiesFileException("Can't find alpaca.properties", e);
 		}
     }
 }

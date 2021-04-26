@@ -87,43 +87,7 @@ public class AlpacaApiTests {
 		            SortDirection.ASCENDING,
 		            true,
 		            Arrays.asList("AAPL", "TSLA"));
-		    orders.forEach(System.out::println);
-		    
-		    // Request a new limit order for TSLA for 100 shares at a limit price
-		    // of 600.00 and TIF of DAY.
-		    Order limitOrderTSLA = alpacaAPI.requestNewLimitOrder(
-		            "TSLA",
-		            100,
-		            OrderSide.BUY,
-		            OrderTimeInForce.DAY,
-		            600.00,
-		            false);
-		    
-		    // Check if my TSLA limit order has filled 5 seconds later and if it hasn't
-		    // replace it with a market order so it fills!
-		    Thread.sleep(5000);
-		    limitOrderTSLA = alpacaAPI.getOrder(limitOrderTSLA.getId(), false);
-		    if (limitOrderTSLA.getFilledAt() == null) {
-		        Order replacedOrder = alpacaAPI.replaceOrder(
-		                limitOrderTSLA.getId(),
-		                100,
-		                OrderTimeInForce.DAY,
-		                null,
-		                null,
-		                null,
-		                null);
-		    }
-		    
-		    // Cancel all open orders
-		    List<CancelledOrder> cancelledOrders = alpacaAPI.cancelAllOrders();
-		    /*for (CancelledOrder cancelledOrder : cancelledOrders) {
-		        System.out.println("Cancelled Order: " + cancelledOrder.getOrder());
-		    }
-		    */
-		    // Request a new fractional market order for 0.5 shares of GME 
-		    alpacaAPI.requestNewFractionalMarketOrder("GME", 0.5, OrderSide.BUY);
-		    // Request a new notional market order for $25 worth of GME shares
-		    alpacaAPI.requestNewNotionalMarketOrder("GME", 25d, OrderSide.BUY);
+		    //orders.forEach(System.out::println);
 		} catch (AlpacaAPIRequestException e) {
 		    e.printStackTrace();
 		}

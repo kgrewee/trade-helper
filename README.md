@@ -20,48 +20,43 @@ Make algo-trading easier with a platform to view more descriptive information ab
 
 ## Required Software
 
-- npm & nodeJS https://www.npmjs.com/get-npm
+- NodeJS https://nodejs.org/en/download/
+- npm https://www.npmjs.com/get-npm
 - AngularCLI https://angular.io/cli
 - OpenJDK11 https://openjdk.java.net/install/
 - Maven https://maven.apache.org/install.html, https://www.baeldung.com/install-maven-on-windows-linux-mac
 
-## Installation
+## Install & Run
 
-TradeHelper consists of an Angular UI with a Java RestAPI as a data source.  Both projects are found within this repository.
+TradeHelper consists of an Angular User Interface with a Java RestAPI backend.  Both projects are found within this repository.
 
-### Backend
+### Properties
 
-1. Start in the repo root directory
-2. Navigate to TradeHelper API directory
-``` 
-cd tradehelper-api/
+TradeHelper's RestAPI requires various properties files to function.  If they are not created, the backend build will fail.
 ```
-3. Build jar to the target/ directory
-``` 
-mvn clean install
-```
-4. Navigate to the target directory
-``` 
-cd target/
-```
-5. Run the jar to start the server
-``` 
-java -jar tradehelper-api-0.0.1-SNAPSHOT.jar
+- alpaca.properties
+- polygon.properties
 ```
 
-### Frontend
+Properties files must be located in **src/main/resources**
 
-1. Start in the repo root directory
-2. Navigate to TradeHelper UI directory
-``` 
-cd tradehelper-ui
+1. Navigate to src/main/resources and create a copy of the templates for each properties file
+2. Rename and fill with your credentials
+3. Properties files are copied to the same directory as the jar when performing an install
+4. The jar reads the properties files every rest call to allow users to change credentials without restarting the application
+5. Return to the repo root directory
+
+### Installation Script
+
+1. Run the install script
 ```
-3. Install dependencies
-``` 
-npm install
+./install.sh
 ```
-4. Run the frontend and open it in the browser
-``` 
-ng serve --open
+
+### Run Script
+
+1. Run the application
+```
+./run.sh
 ```
 
