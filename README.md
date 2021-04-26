@@ -52,9 +52,9 @@ TradeHelper's RestAPI requires various properties files to function.  If they ar
 ``` 
 cd tradehelper-api/
 ```
-3. Build jar to the target/ directory
+3. Run install script
 ``` 
-mvn clean install
+./install
 ```
 4. Navigate to the target directory
 ``` 
