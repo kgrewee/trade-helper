@@ -37,12 +37,28 @@ $tradehelper-theme: mat-light-theme(( color: ( primary: $tradehelper-primary, ac
     flex-direction: row;
 }
 
+.sessions {
+    z-index: 1;
+    left: 0;
+    top: 60px;
+    right: 0;
+    height: 50px;
+    background: rgb(36, 35, 35);
+    color: $white;
+    display: flex;
+    flex-direction: row;
+}
+
 .logo {
     text-decoration: none;
     color: $white;
     font-size: 35px;
     padding: 18px;
     margin-right: 40px;
+}
+
+a {
+    cursor: pointer;
 }
 
 h1 {
@@ -58,9 +74,6 @@ body {
     padding: 15px;
     margin-top: 60px;
     height: calc(100% - 60px);
-}
-
-body {
     background-color: $background;
 }
 

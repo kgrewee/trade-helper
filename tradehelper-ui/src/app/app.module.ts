@@ -9,6 +9,7 @@ import { HomeModule } from './modules/home/home.module';
 import { SettingsModule } from './modules/settings/settings.module';
 import { OrdersModule } from './modules/orders/orders.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SessionsModule } from './modules/sessions/sessions.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SettingsModule,
     OrdersModule,
     BrowserAnimationsModule,
+    SessionsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
