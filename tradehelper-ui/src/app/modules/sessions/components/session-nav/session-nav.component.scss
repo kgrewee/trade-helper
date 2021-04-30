@@ -1,21 +1,20 @@
 .session {
     width: auto;
+    text-align: center;
     font-size: 1.5em;
     color: white;
-    margin-right: 10px;
     background-color: rgb(54, 54, 54);
     padding: 15px;
 }
 
-.session-icon mat-icon {
+.session mat-icon {
     color: white;
-    font-size: 2em;
-    width: 1em;
-    height: 1em;
-    margin-top: 10px;
+    font-size: 1.5em;
+    width: 1.5em;
+    height: 1.5em;
 }
 
-.session-icon:hover mat-icon {
+.session:hover mat-icon {
     color: lightgray;
 }
 
