@@ -11,6 +11,7 @@ const routes: Routes = [
       { path: ':id', component: SessionViewComponent },
     ]
   },
+  
 ];
 
 @NgModule({

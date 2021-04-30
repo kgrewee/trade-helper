@@ -13,7 +13,6 @@ export class SessionViewComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.id = params.get('id')?.toString();
-      console.log(this.id);
     })
   }
 

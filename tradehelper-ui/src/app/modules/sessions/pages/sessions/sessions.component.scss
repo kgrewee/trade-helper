@@ -1,7 +1,7 @@
 .sidemenu-container {
     width: 400px;
     height: 600px;
-    background-color: transparent;
+    background-color: #121212;
 }
 
 mat-drawer-content {
@@ -9,8 +9,11 @@ mat-drawer-content {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: rgb(68, 68, 68);
-    border: 1px solid rgb(68, 68, 68);
+    background-color: #121212;
+}
+
+mat-drawer-content mat-icon {
+    color: white;
 }
 
 .mat-drawer {
