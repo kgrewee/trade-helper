@@ -7,11 +7,12 @@ import { SessionsComponent } from './pages/sessions/sessions.component';
 const routes: Routes = [
   {
     path: "session", component: SessionsComponent, children: [
+      { path: '', redirectTo: 'create', pathMatch: 'full' },
       { path: 'create', component: SessionFormComponent },
       { path: ':id', component: SessionViewComponent },
     ]
   },
-  
+
 ];
 
 @NgModule({

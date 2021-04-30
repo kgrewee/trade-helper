@@ -10,6 +10,9 @@ import { SessionsComponent } from './pages/sessions/sessions.component';
 import { SessionFormComponent } from './components/session-form/session-form.component';
 import { SessionViewComponent } from './components/session-view/session-view.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 
@@ -21,7 +24,11 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatIconModule,
     MatButtonModule,
     RouterModule,
-    MatSidenavModule
+    MatSidenavModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatFormFieldModule
   ]
 })
 export class SessionsModule { }
