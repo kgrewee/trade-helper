@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SessionFormComponent } from './pages/session-form/session-form.component';
-import { SessionViewComponent } from './pages/session-view/session-view.component';
+import { SessionFormComponent } from './components/session-form/session-form.component';
+import { SessionViewComponent } from './components/session-view/session-view.component';
+import { SessionsComponent } from './pages/sessions/sessions.component';
 
 const routes: Routes = [
-  {path: "session", component: SessionFormComponent},
-  {path: "session/:id", component: SessionViewComponent}
+  {
+    path: "session", component: SessionsComponent, children: [
+      { path: 'create', component: SessionFormComponent },
+      { path: ':id', component: SessionViewComponent },
+    ]
+  },
 ];
 
 @NgModule({

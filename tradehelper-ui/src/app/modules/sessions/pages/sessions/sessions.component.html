@@ -1,0 +1,9 @@
+<mat-drawer-container class="sidmemenu-container">
+    <mat-drawer #drawer mode="side" opened>
+        <app-session-nav></app-session-nav>
+    </mat-drawer>
+    <mat-drawer-content>
+        <button mat-icon-button (click)="drawer.toggle()"><mat-icon>last_page</mat-icon></button>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>

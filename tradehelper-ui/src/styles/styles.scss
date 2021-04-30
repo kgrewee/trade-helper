@@ -38,15 +38,11 @@ $tradehelper-theme: mat-light-theme(( color: ( primary: $tradehelper-primary, ac
 }
 
 .sessions {
-    z-index: 1;
-    left: 0;
-    top: 60px;
-    right: 0;
-    height: 50px;
+    width: 100%;
     background: rgb(36, 35, 35);
     color: $white;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .logo {
