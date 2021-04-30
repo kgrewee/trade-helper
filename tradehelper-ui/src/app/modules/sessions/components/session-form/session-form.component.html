@@ -1,4 +1,11 @@
-<h1>New Session</h1>
-<div>
-
-</div>
+<h2>New Session</h2>
+<form>
+    <mat-form-field appearance="fill">
+        <mat-label>Exchange</mat-label>
+        <mat-select [(ngModel)]="exchange" name="exchange">
+            <mat-option *ngFor="let exchange of exchangeList" [value]="exchange.value">
+                {{exchange.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</form>
