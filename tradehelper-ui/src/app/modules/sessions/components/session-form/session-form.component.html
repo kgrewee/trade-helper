@@ -1,13 +1,25 @@
-<h1>Create Trading Session</h1>
+<h1>New Session</h1>
 <div class="session-form-container">
     <h2>Exchange</h2>
     <mat-divider></mat-divider>
     <div class="form-container">
         <mat-radio-group aria-label="Select an option" [(ngModel)]="exchange">
-            <mat-radio-button value="alpaca">Alpaca</mat-radio-button>
-            <mat-radio-button value="binance">Binance</mat-radio-button>
-            <mat-radio-button value="tda">TDA</mat-radio-button>
+            <mat-radio-button value="alpaca"><span>Alpaca</span></mat-radio-button>
+            <mat-radio-button value="binance"><span>Binance</span></mat-radio-button>
+            <mat-radio-button value="tda"><span>TDA</span></mat-radio-button>
         </mat-radio-group>
+    </div>
+
+    <h2>Information</h2>
+    <mat-divider></mat-divider>
+    <div class="form-container">
+        <mat-form-field class="form-field">
+            <mat-label>Name</mat-label>
+            <input matInput type="text" [(ngModel)]="name">
+            <button mat-button *ngIf="name" matSuffix mat-icon-button aria-label="Clear" (click)="name=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
     </div>
 
     <h2>Credentials</h2>
@@ -68,6 +80,11 @@
         <h2>
             Coming Soon
         </h2>
+    </div>
+
+    <div class="button-container">
+        <button mat-button class="reset-button">Clear</button>
+        <button mat-button class="save-button">Create</button>
     </div>
 
 </div>

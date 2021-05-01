@@ -85,7 +85,7 @@ body {
 
 mat-divider {
     width: 100%;
-    background-color: $nav-background;
+    background-color: black;
 }
 
 // Form styles
@@ -104,7 +104,11 @@ input {
 }
 
 .form-container {
-    padding: 20px;
+    padding: 30px;
+    background-color: rgba(68, 68, 68, 0.2);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    margin-bottom: 20px;
 }
 
 .home-container {

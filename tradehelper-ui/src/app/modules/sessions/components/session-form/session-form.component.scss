@@ -43,6 +43,10 @@ h2 {
     font-size: 1.5em;
 }
 
+.mat-radio-button span {
+    margin-left: 8px;
+}
+
 ::ng-deep {
     .mat-radio-button.mat-accent .mat-radio-outer-circle {
         border-color: white;
@@ -51,6 +55,9 @@ h2 {
         border-color: rgb(39, 202, 39);
         margin-right: 10px;
     }
+    .mat-radio-button.mat-accent.mat-radio-checked span {
+        color: rgb(39, 202, 39);
+    }
     .mat-radio-button.mat-accent .mat-radio-inner-circle {
         color: rgb(39, 202, 39);
         background-color: rgb(39, 202, 39);
@@ -58,4 +65,25 @@ h2 {
     .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
         background-color: rgb(39, 202, 39);
     }
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.button-container button {
+    color: white;
+    background-color: rgba(68, 68, 68, 0.2);
+    width: 175px;
+    border-radius: 5px;
+    margin-left: 10px;
+    border: 2px solid transparent;
+}
+
+.button-container button:hover {
+    border: 2px solid rgb(151, 151, 151);
+    transition: border ease 1s;
 }
