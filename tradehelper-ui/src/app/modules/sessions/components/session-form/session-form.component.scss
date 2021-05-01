@@ -2,6 +2,13 @@ h2 {
     margin: 5px;
 }
 
+.session-form-container {
+    background-color: rgba(68, 68, 68, 0.2);
+    box-shadow: 4px 4px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 15px;
+}
+
 // Mat Form Field
  ::ng-deep .mat-form-field {
     .mat-input-element {
@@ -38,7 +45,7 @@ h2 {
 
 // End Mat Form Field
 .mat-radio-button {
-    margin: 15px;
+    margin: 10px;
     color: white;
     font-size: 1.5em;
 }
@@ -78,12 +85,21 @@ h2 {
     color: white;
     background-color: rgba(68, 68, 68, 0.2);
     width: 175px;
-    border-radius: 5px;
-    margin-left: 10px;
-    border: 2px solid transparent;
+    border-radius: 2px;
+    border-bottom: 2px solid transparent;
 }
 
 .button-container button:hover {
-    border: 2px solid rgb(151, 151, 151);
+    border-bottom: 2px solid rgb(151, 151, 151);
     transition: border ease 1s;
+}
+
+textarea {
+    width: 500px;
+    height: 100px;
+    background-color: rgb(34, 34, 34) !important;
+}
+
+.textarea {
+    width: 500px;
 }

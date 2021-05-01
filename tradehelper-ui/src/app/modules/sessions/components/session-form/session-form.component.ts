@@ -13,6 +13,7 @@ interface Exchange {
 export class SessionFormComponent implements OnInit {
   exchange = "alpaca";
   name = '';
+  desc = '';
   exchangeList: Exchange[] = [{value:'ALPACA', viewValue: "Alpaca"}, {value:'BINANCE', viewValue: "Binance"}, {value:'TDA', viewValue: "TDA"}];
   apikey = '';
   secretkey = '';
@@ -28,6 +29,7 @@ export class SessionFormComponent implements OnInit {
 
   clear(){
     this.name = '';
+    this.desc = '';
     this.apikey = '';
     this.secretkey = '';
     this.baseapi = '';

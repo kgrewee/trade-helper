@@ -123,11 +123,8 @@ input {
 }
 
 .form-container {
-    padding: 30px;
-    background-color: rgba(68, 68, 68, 0.2);
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    padding: 15px;
     border-radius: 5px;
-    margin-bottom: 20px;
 }
 
 .widget-container {
@@ -138,10 +135,6 @@ input {
     margin-bottom: 20px;
     max-height: 300px;
     overflow: scroll;
-}
-
-.widget-container h2 {
-    position: fixed;
 }
 
 .home-container {
