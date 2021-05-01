@@ -58,13 +58,13 @@ public class AlpacaController {
 	}
 
 	/**
-	 * Gets all open positions
+	 * Gets all positions
 	 * 
-	 * @return List of open positions
+	 * @return List of positions
 	 * @throws Exception
 	 */
-	@RequestMapping("/positions/open")
-	public List<Position> getOpenPositions() throws Exception {
+	@RequestMapping("/positions")
+	public List<Position> getPositions() throws Exception {
 		try {
 			return PropertiesUtility.getAlpacaAPI().getOpenPositions();
 		} catch (AlpacaAPIRequestException e) {
