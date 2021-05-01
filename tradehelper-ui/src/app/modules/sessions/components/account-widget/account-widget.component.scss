@@ -1,0 +1,15 @@
+.account-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.account {
+    margin-bottom: 50px;
+    margin-right: 50px;
+}
+
+.account span {
+    color: rgb(172, 172, 172);
+}

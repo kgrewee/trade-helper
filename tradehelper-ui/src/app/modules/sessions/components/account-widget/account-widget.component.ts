@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AccountService } from 'src/app/core/http/account/account.service';
+import { AlpacaAccount } from 'src/app/shared/models/alpaca-account';
 
 @Component({
   selector: 'app-account-widget',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./account-widget.component.scss']
 })
 export class AccountWidgetComponent implements OnInit {
-
-  constructor() { }
+  account!: AlpacaAccount;
+  constructor(private accountService: AccountService) { }
 
   ngOnInit(): void {
+    this.accountService.getAccount().subscribe(account => {
+      this.account = account;
+    });
   }
 
 }
