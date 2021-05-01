@@ -27,11 +27,12 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
+import { ClockWidgetComponent } from './components/clock-widget/clock-widget.component';
 
 
 
 @NgModule({
-  declarations: [SessionFormComponent, SessionViewComponent, SessionNavComponent, SessionsComponent, AccountWidgetComponent, OrdersWidgetComponent, PositionsWidgetComponent, AssetsWidgetComponent, WatchlistWidgetComponent, MarketStatusWidgetComponent],
+  declarations: [SessionFormComponent, SessionViewComponent, SessionNavComponent, SessionsComponent, AccountWidgetComponent, OrdersWidgetComponent, PositionsWidgetComponent, AssetsWidgetComponent, WatchlistWidgetComponent, MarketStatusWidgetComponent, ClockWidgetComponent],
   imports: [
     CommonModule,
     SessionsRoutingModule,

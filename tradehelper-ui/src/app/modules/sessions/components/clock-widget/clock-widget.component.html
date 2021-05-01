@@ -1,0 +1,19 @@
+<h2>Clock</h2>
+<div *ngIf="clock" class="widget-container clock-container">
+    <div class="time">
+        <h3>Current Time</h3>
+        <span>{{clock.timestamp}}</span>
+    </div>
+    <div class="time">
+        <h3>Market Open</h3>
+        <span>{{clock.isOpen}}</span>
+    </div>
+    <div class="time">
+        <h3>Next Open</h3>
+        <span>{{clock.nextOpen}}</span>
+    </div>
+    <div class="time">
+        <h3>Next Close</h3>
+        <span>{{clock.nextClose}}</span>
+    </div>
+</div>

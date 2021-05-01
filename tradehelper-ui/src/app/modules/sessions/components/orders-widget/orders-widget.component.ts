@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { ActivatedRoute } from '@angular/router';
 import { Observable, of, merge } from 'rxjs';
 import { startWith, delay, switchMap, map, catchError } from 'rxjs/operators';
 import { OrderService } from 'src/app/core/http/order/order.service';
@@ -22,14 +23,14 @@ export class OrdersWidgetComponent implements OnInit {
   paginator!: MatPaginator;
   @ViewChild(MatSort)
   sort!: MatSort;
-  constructor(private orderService: OrderService) {
+  constructor(private orderService: OrderService, private route: ActivatedRoute) {
     this.filteredAndPagedItems = of([]);
   }
 
   ngOnInit(): void {
     this.refreshInterval = setInterval(() => {
       this.getItems();
-    }, 10000)
+    }, 10000);
   }
 
   ngAfterViewInit() {
