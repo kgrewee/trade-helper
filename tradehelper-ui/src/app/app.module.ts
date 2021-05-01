@@ -7,7 +7,6 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './modules/home/home.module';
 import { SettingsModule } from './modules/settings/settings.module';
-import { OrdersModule } from './modules/orders/orders.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SessionsModule } from './modules/sessions/sessions.module';
 
@@ -22,7 +21,6 @@ import { SessionsModule } from './modules/sessions/sessions.module';
     SharedModule,
     HomeModule,
     SettingsModule,
-    OrdersModule,
     BrowserAnimationsModule,
     SessionsModule
   ],
