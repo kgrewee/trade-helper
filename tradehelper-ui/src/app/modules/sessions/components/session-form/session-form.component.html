@@ -1,11 +1,73 @@
-<h2>New Session</h2>
-<form>
-    <mat-form-field appearance="fill">
-        <mat-label>Exchange</mat-label>
-        <mat-select [(ngModel)]="exchange" name="exchange">
-            <mat-option *ngFor="let exchange of exchangeList" [value]="exchange.value">
-                {{exchange.viewValue}}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
-</form>
+<h1>Create Trading Session</h1>
+<div class="session-form-container">
+    <h2>Exchange</h2>
+    <mat-divider></mat-divider>
+    <div class="form-container">
+        <mat-radio-group aria-label="Select an option" [(ngModel)]="exchange">
+            <mat-radio-button value="alpaca">Alpaca</mat-radio-button>
+            <mat-radio-button value="binance">Binance</mat-radio-button>
+            <mat-radio-button value="tda">TDA</mat-radio-button>
+        </mat-radio-group>
+    </div>
+
+    <h2>Credentials</h2>
+    <mat-divider></mat-divider>
+    <div class="form-container" *ngIf="exchange === 'alpaca'">
+        <mat-form-field class="form-field">
+            <mat-label>API Key</mat-label>
+            <input matInput type="text" [(ngModel)]="apikey">
+            <button mat-button *ngIf="apikey" matSuffix mat-icon-button aria-label="Clear" (click)="apikey=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+            <mat-label>Secret Key</mat-label>
+            <input matInput type="text" [(ngModel)]="secretkey">
+            <button mat-button *ngIf="secretkey" matSuffix mat-icon-button aria-label="Clear" (click)="secretkey=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+            <mat-label>Base API URL</mat-label>
+            <input matInput type="text" [(ngModel)]="baseapi">
+            <button mat-button *ngIf="baseapi" matSuffix mat-icon-button aria-label="Clear" (click)="baseapi=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+            <mat-label>Data API URL</mat-label>
+            <input matInput type="text" [(ngModel)]="dataapi">
+            <button mat-button *ngIf="dataapi" matSuffix mat-icon-button aria-label="Clear" (click)="dataapi=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
+
+    <div class="form-container" *ngIf="exchange === 'binance'">
+        <mat-form-field class="form-field">
+            <mat-label>API Key</mat-label>
+            <input matInput type="text" [(ngModel)]="apikey">
+            <button mat-button *ngIf="apikey" matSuffix mat-icon-button aria-label="Clear" (click)="apikey=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+            <mat-label>Secret Key</mat-label>
+            <input matInput type="text" [(ngModel)]="secretkey">
+            <button mat-button *ngIf="secretkey" matSuffix mat-icon-button aria-label="Clear" (click)="secretkey=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
+
+    <div class="form-container" *ngIf="exchange === 'tda'">
+        <h2>
+            Coming Soon
+        </h2>
+    </div>
+
+</div>

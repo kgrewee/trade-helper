@@ -11,8 +11,13 @@ interface Exchange {
   styleUrls: ['./session-form.component.scss']
 })
 export class SessionFormComponent implements OnInit {
-  exchange: any = "";
+  exchange = "alpaca";
   exchangeList: Exchange[] = [{value:'ALPACA', viewValue: "Alpaca"}, {value:'BINANCE', viewValue: "Binance"}, {value:'TDA', viewValue: "TDA"}];
+  apikey = '';
+  secretkey = '';
+  baseapi = '';
+  dataapi = '';
+
   constructor() { }
 
   ngOnInit(): void {

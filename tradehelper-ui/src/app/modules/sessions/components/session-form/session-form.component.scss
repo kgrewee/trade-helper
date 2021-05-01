@@ -2,50 +2,60 @@ h2 {
     margin: 5px;
 }
 
-::ng-deep .mat-form-field {
+// Mat Form Field
+ ::ng-deep .mat-form-field {
     .mat-input-element {
-        color: slategray;
+        color: #5c6061 !important;
     }
     .mat-form-field-label {
-        color: slategray;
+        color: white;
     }
     .mat-form-field-underline {
-        background-color: slategray;
+        background-color: #5c6061;
     }
     .mat-form-field-ripple {
-        background-color: slategray;
+        background-color: #5c6061;
     }
     .mat-form-field-required-marker {
-        color: slategray;
+        color: #5c6061;
     }
 }
 
-::ng-deep .mat-form-field.mat-focused {
+ ::ng-deep .mat-form-field.mat-focused {
     .mat-form-field-label {
-        color: #ff884d;
+        color: white;
     }
     .mat-form-field-ripple {
-        background-color: #ff884d;
+        background-color: white;
     }
     .mat-form-field-required-marker {
-        color: #ff884d;
+        color: white;
     }
     .mat-input-element {
-        color: #ff884d;
+        color: white;
     }
 }
 
-::ng-deep .mat-form-field.mat-form-field-invalid {
-    .mat-input-element {
-        color: #ff33cc;
+// End Mat Form Field
+.mat-radio-button {
+    margin: 15px;
+    color: white;
+    font-size: 1.5em;
+}
+
+::ng-deep {
+    .mat-radio-button.mat-accent .mat-radio-outer-circle {
+        border-color: white;
     }
-    .mat-form-field-label {
-        color: #ff33cc;
-        .mat-form-field-required-marker {
-            color: #ff33cc;
-        }
+    .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+        border-color: rgb(39, 202, 39);
+        margin-right: 10px;
     }
-    .mat-form-field-ripple {
-        background-color: #ff33cc;
+    .mat-radio-button.mat-accent .mat-radio-inner-circle {
+        color: rgb(39, 202, 39);
+        background-color: rgb(39, 202, 39);
+    }
+    .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+        background-color: rgb(39, 202, 39);
     }
 }
