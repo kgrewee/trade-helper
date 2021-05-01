@@ -18,10 +18,22 @@ export class SessionFormComponent implements OnInit {
   secretkey = '';
   baseapi = '';
   dataapi = '';
+  clientid = '';
+  oauth = '';
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  clear(){
+    this.name = '';
+    this.apikey = '';
+    this.secretkey = '';
+    this.baseapi = '';
+    this.dataapi = '';
+    this.clientid = '';
+    this.oauth = '';
   }
 
 }

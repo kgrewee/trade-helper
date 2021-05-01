@@ -17,11 +17,21 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatRadioModule } from '@angular/material/radio';
+import { AccountWidgetComponent } from './components/account-widget/account-widget.component';
+import { OrdersWidgetComponent } from './components/orders-widget/orders-widget.component';
+import { PositionsWidgetComponent } from './components/positions-widget/positions-widget.component';
+import { AssetsWidgetComponent } from './components/assets-widget/assets-widget.component';
+import { WatchlistWidgetComponent } from './components/watchlist-widget/watchlist-widget.component';
+import { MarketStatusWidgetComponent } from './components/market-status-widget/market-status-widget.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
 
 
 
 @NgModule({
-  declarations: [SessionFormComponent, SessionViewComponent, SessionNavComponent, SessionsComponent],
+  declarations: [SessionFormComponent, SessionViewComponent, SessionNavComponent, SessionsComponent, AccountWidgetComponent, OrdersWidgetComponent, PositionsWidgetComponent, AssetsWidgetComponent, WatchlistWidgetComponent, MarketStatusWidgetComponent],
   imports: [
     CommonModule,
     SessionsRoutingModule,
@@ -36,7 +46,11 @@ import { MatRadioModule } from '@angular/material/radio';
     MatSelectModule,
     MatDividerModule,
     MatTooltipModule,
-    MatRadioModule
+    MatRadioModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatProgressBarModule,
+    MatTableModule
   ]
 })
 export class SessionsModule { }
