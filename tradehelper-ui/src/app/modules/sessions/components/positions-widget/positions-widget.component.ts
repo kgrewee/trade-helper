@@ -3,8 +3,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { Observable, of, merge } from 'rxjs';
 import { startWith, delay, switchMap, map, catchError } from 'rxjs/operators';
-import { OrderService } from 'src/app/core/http/order/order.service';
-import { Order } from 'src/app/shared/models/order';
+import { PositionService } from 'src/app/core/http/position/position.service';
+import { AlpacaPosition } from 'src/app/shared/models/alpaca-position';
 
 @Component({
   selector: 'app-positions-widget',
@@ -12,17 +12,17 @@ import { Order } from 'src/app/shared/models/order';
   styleUrls: ['./positions-widget.component.scss']
 })
 export class PositionsWidgetComponent implements OnInit {
-  displayedColumns: string[] = ['status', 'submittedAt', 'filledAt', 'symbol', 'assetClass', 'qty', 'filledQty', 'type', 'side', 'limitPrice', 'filledAvgPrice'];
-  filteredAndPagedItems: Observable<Order[]>;
+  displayedColumns: string[] = ['symbol', 'exchange', 'assetClass', 'avgEntryPrice', 'qty', 'side', 'marketValue', 'costBasis', 'unrealizedPl', 'unrealizedPlpc', 'unrealizedIntradayPl', 'unrealizedIntradayPlpc', 'currentPrice', 'lastdayPrice', 'changeToday'];
+  filteredAndPagedItems: Observable<AlpacaPosition[]>;
   resultsLength = 0;
-  isLoadingResults = true;
+  isLoading = true;
   refreshInterval: any;
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   @ViewChild(MatSort)
   sort!: MatSort;
-  constructor(private orderService: OrderService) {
+  constructor(private positionService: PositionService) {
     this.filteredAndPagedItems = of([]);
   }
 
@@ -45,15 +45,15 @@ export class PositionsWidgetComponent implements OnInit {
         startWith({}),
         delay(0),
         switchMap(() => {
-          return this.orderService.getAll();
+          return this.positionService.getPositions();
         }),
         map(data => {
-          this.isLoadingResults = false;
+          this.isLoading = false;
           this.resultsLength = data.length;
           return data;
         }),
         catchError(() => {
-          this.isLoadingResults = false;
+          this.isLoading = false;
           return of([]);
         })
       );

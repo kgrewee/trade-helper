@@ -16,7 +16,7 @@ export class OrdersWidgetComponent implements OnInit {
   displayedColumns: string[] = ['status', 'submittedAt', 'filledAt', 'symbol', 'assetClass', 'qty', 'filledQty', 'type', 'side', 'limitPrice', 'filledAvgPrice'];
   filteredAndPagedItems: Observable<Order[]>;
   resultsLength = 0;
-  isLoadingResults = true;
+  isLoading = true;
   refreshInterval: any;
 
   @ViewChild(MatPaginator)
@@ -49,12 +49,12 @@ export class OrdersWidgetComponent implements OnInit {
           return this.orderService.getAll();
         }),
         map(data => {
-          this.isLoadingResults = false;
+          this.isLoading = false;
           this.resultsLength = data.length;
           return data;
         }),
         catchError(() => {
-          this.isLoadingResults = false;
+          this.isLoading = false;
           return of([]);
         })
       );

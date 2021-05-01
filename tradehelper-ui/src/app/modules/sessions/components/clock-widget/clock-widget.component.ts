@@ -9,12 +9,14 @@ import { Clock } from 'src/app/shared/models/clock';
 })
 export class ClockWidgetComponent implements OnInit {
   clock!: Clock;
+  isLoading = true;
   constructor(private clockService: ClockService) { }
 
   ngOnInit(): void {
     this.clockService.getClock().subscribe(clock => {
       this.clock = clock;
-    })
+      this.isLoading = false;
+    });
   }
 
 }

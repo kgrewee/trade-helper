@@ -9,11 +9,13 @@ import { AlpacaAccount } from 'src/app/shared/models/alpaca-account';
 })
 export class AccountWidgetComponent implements OnInit {
   account!: AlpacaAccount;
+  isLoading = true;
   constructor(private accountService: AccountService) { }
 
   ngOnInit(): void {
     this.accountService.getAccount().subscribe(account => {
       this.account = account;
+      this.isLoading = false;
     });
   }
 

@@ -1,5 +1,6 @@
 <h2>Clock</h2>
 <div *ngIf="clock" class="widget-container clock-container">
+    <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
     <div class="time">
         <h3>Current Time</h3>
         <span>{{clock.timestamp}}</span>

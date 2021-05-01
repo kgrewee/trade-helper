@@ -1,5 +1,6 @@
 <h2>Account</h2>
 <div *ngIf="account" class="widget-container account-container">
+    <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
     <div class="account">
         <h3>Number</h3>
         <span>{{account.accountNumber}}</span>
