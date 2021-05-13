@@ -1,7 +1,9 @@
-<h1>Session {{id}}</h1>
-<div>
-    <app-clock-widget></app-clock-widget>
-    <app-account-widget></app-account-widget>
-    <app-orders-widget></app-orders-widget>
-    <app-positions-widget></app-positions-widget>
+<div *ngIf="session">
+    <h1>Session {{session.id}}</h1>
+    <div>
+        <app-clock-widget [session]="session"></app-clock-widget>
+        <app-account-widget [session]="session"></app-account-widget>
+        <app-orders-widget [session]="session"></app-orders-widget>
+        <app-positions-widget [session]="session"></app-positions-widget>
+    </div>
 </div>

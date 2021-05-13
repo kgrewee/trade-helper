@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ClockService } from 'src/app/core/http/clock/clock.service';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { SessionService } from 'src/app/core/http/session/session.service';
+import { ISession } from 'src/app/shared/interfaces/isession';
 import { Clock } from 'src/app/shared/models/clock';
 
 @Component({
@@ -7,13 +8,22 @@ import { Clock } from 'src/app/shared/models/clock';
   templateUrl: './clock-widget.component.html',
   styleUrls: ['./clock-widget.component.scss']
 })
-export class ClockWidgetComponent implements OnInit {
+export class ClockWidgetComponent implements OnInit, OnChanges {
+  @Input() session!: ISession;
   clock!: Clock;
   isLoading = true;
-  constructor(private clockService: ClockService) { }
+  constructor(private sessionService: SessionService) { }
+  ngOnChanges(changes: SimpleChanges): void {
+    this.getClock();
+  }
 
   ngOnInit(): void {
-    this.clockService.getClock().subscribe(clock => {
+
+  }
+
+  getClock() {
+    this.isLoading = true;
+    this.sessionService.getClock(this.session.id).subscribe(clock => {
       this.clock = clock;
       this.isLoading = false;
     });
