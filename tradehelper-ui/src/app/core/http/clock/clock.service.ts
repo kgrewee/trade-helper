@@ -11,7 +11,7 @@ import { ErrorHandlerService } from '../../services/error/error-handler.service'
 })
 export class ClockService {
 
-  private URL = environment.API_URL + "/clock";
+  private URL = environment.API_URL + "/alpaca/clock";
 
   constructor(
     private http: HttpClient,

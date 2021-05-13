@@ -10,7 +10,7 @@ import { ErrorHandlerService } from '../../services/error/error-handler.service'
   providedIn: 'root'
 })
 export class AccountService {
-  private URL = environment.API_URL + "/account";
+  private URL = environment.API_URL + "/alpaca/account";
 
   constructor(
     private http: HttpClient,
