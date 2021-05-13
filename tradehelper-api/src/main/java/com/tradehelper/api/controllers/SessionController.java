@@ -29,6 +29,15 @@ public class SessionController {
 	@Autowired
 	private SessionService sessionService;
 
+	@RequestMapping("{id}")
+	public Session get(@PathVariable String id) throws Exception {
+		try {
+			return sessionService.getSession(id);
+		} catch (Exception e) {
+			throw new SessionException("Can't get sessions", e);
+		}
+	}
+
 	@RequestMapping("")
 	public List<Session> getAll() throws Exception {
 		try {

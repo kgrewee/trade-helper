@@ -24,6 +24,32 @@ import net.jacobpeterson.alpaca.enums.api.EndpointAPIType;
 @Service
 public class SessionService {
 
+	public Session getSession(String id) throws Exception {
+		Session s = null;
+		try (InputStream input = new FileInputStream(id + ".session")) {
+			Properties prop = new Properties();
+
+			prop.load(input);
+
+			switch (prop.getProperty("exchange")) {
+			case "ALPACA":
+				s = new AlpacaSession(prop.getProperty("id"), prop.getProperty("name"), Exchange.ALPACA,
+						prop.getProperty("key_id"), prop.getProperty("secret"), EndpointAPIType.PAPER, DataAPIType.IEX);
+				break;
+			case "BINANCE":
+				s = new BinanceSession(prop.getProperty("id"), prop.getProperty("name"), Exchange.BINANCE,
+						prop.getProperty("key_id"), prop.getProperty("secret"));
+				break;
+			default:
+
+			}
+
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+		return s;
+	}
+
 	public List<Session> getAllSessions() throws Exception {
 		List<Session> sessions = new ArrayList<Session>();
 		List<String> files = FileUtility.findFiles(Paths.get(""), ".session");
