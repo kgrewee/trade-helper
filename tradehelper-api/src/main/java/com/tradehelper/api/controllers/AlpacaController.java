@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tradehelper.api.exceptions.AlpacaException;
@@ -49,9 +50,9 @@ public class AlpacaController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/account")
-	public Account getAccount() throws Exception {
+	public Account getAccount(@RequestParam String id) throws Exception {
 		try {
-			return PropertiesUtility.getAlpacaAPI().getAccount();
+				return PropertiesUtility.getAlpacaAPI(id).getAccount();
 		} catch (AlpacaAPIRequestException e) {
 			throw new AlpacaException("Can't reach alpaca.  Check credentials in alpaca.properties", e);
 		} catch (Exception e) {
@@ -66,9 +67,9 @@ public class AlpacaController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/positions")
-	public List<Position> getPositions() throws Exception {
+	public List<Position> getPositions(@RequestParam String id) throws Exception {
 		try {
-			return PropertiesUtility.getAlpacaAPI().getOpenPositions();
+			return PropertiesUtility.getAlpacaAPI(id).getOpenPositions();
 		} catch (AlpacaAPIRequestException e) {
 			throw new AlpacaException("Can't reach alpaca.  Check credentials in alpaca.properties", e);
 		} catch (Exception e) {
@@ -83,9 +84,9 @@ public class AlpacaController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/assets/active")
-	public List<Asset> getUSAssets() throws Exception {
+	public List<Asset> getUSAssets(@RequestParam String id) throws Exception {
 		try {
-			return PropertiesUtility.getAlpacaAPI().getAssets(AssetStatus.ACTIVE, "us_equity");
+			return PropertiesUtility.getAlpacaAPI(id).getAssets(AssetStatus.ACTIVE, "us_equity");
 		} catch (AlpacaAPIRequestException e) {
 			throw new AlpacaException("Can't reach alpaca.  Check credentials in alpaca.properties", e);
 		} catch (Exception e) {
@@ -100,9 +101,9 @@ public class AlpacaController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/clock")
-	public Clock getClock() throws Exception {
+	public Clock getClock(@RequestParam String id) throws Exception {
 		try {
-			return PropertiesUtility.getAlpacaAPI().getClock();
+			return PropertiesUtility.getAlpacaAPI(id).getClock();
 		} catch (AlpacaAPIRequestException e) {
 			throw new AlpacaException("Can't reach alpaca.  Check credentials in alpaca.properties", e);
 		} catch (Exception e) {
@@ -116,26 +117,26 @@ public class AlpacaController {
 	 * @return List of alpaca orders
 	 */
 	@GetMapping("/orders/{type}")
-	public List<Order> getOrders(@PathVariable String type) throws Exception {
+	public List<Order> getOrders(@RequestParam String id, @PathVariable String type) throws Exception {
 		try {
 			switch (type) {
 			case "all":
 			case "ALL":
-				return PropertiesUtility.getAlpacaAPI().getOrders(OrderStatus.ALL, null,
+				return PropertiesUtility.getAlpacaAPI(id).getOrders(OrderStatus.ALL, null,
 						ZonedDateTime.of(2020, 12, 23, 0, 0, 0, 0, ZoneId.of("America/New_York")), null, null, true,
 						null);
 			case "closed":
 			case "CLOSED":
-				return PropertiesUtility.getAlpacaAPI().getOrders(OrderStatus.CLOSED, null,
+				return PropertiesUtility.getAlpacaAPI(id).getOrders(OrderStatus.CLOSED, null,
 						ZonedDateTime.of(2020, 12, 23, 0, 0, 0, 0, ZoneId.of("America/New_York")), null, null, true,
 						null);
 			case "open":
 			case "OPEN":
-				return PropertiesUtility.getAlpacaAPI().getOrders(OrderStatus.OPEN, null,
+				return PropertiesUtility.getAlpacaAPI(id).getOrders(OrderStatus.OPEN, null,
 						ZonedDateTime.of(2020, 12, 23, 0, 0, 0, 0, ZoneId.of("America/New_York")), null, null, true,
 						null);
 			default:
-				return PropertiesUtility.getAlpacaAPI().getOrders(OrderStatus.ALL, null,
+				return PropertiesUtility.getAlpacaAPI(id).getOrders(OrderStatus.ALL, null,
 						ZonedDateTime.of(2020, 12, 23, 0, 0, 0, 0, ZoneId.of("America/New_York")), null, null, true,
 						null);
 			}
