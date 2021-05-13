@@ -1,5 +1,7 @@
 package com.tradehelper.api.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,14 +29,13 @@ public class SessionController {
 	@Autowired
 	private SessionService sessionService;
 
-	/**
-	 * Base url
-	 * 
-	 * @return Welcome message
-	 */
 	@RequestMapping("")
-	public String index() {
-		return "Welcome to TradeHelper Session API";
+	public List<Session> getAll() throws Exception {
+		try {
+			return sessionService.getAllSessions();
+		} catch (Exception e) {
+			throw new SessionException("Can't get sessions", e);
+		}
 	}
 
 	@PostMapping("alpaca/create")
@@ -57,7 +58,7 @@ public class SessionController {
 		return session;
 	}
 
-	@DeleteMapping("delete/{id}")
+	@DeleteMapping("{id}")
 	public void delete(@PathVariable String id) throws Exception {
 		try {
 			sessionService.deleteSession(id);
