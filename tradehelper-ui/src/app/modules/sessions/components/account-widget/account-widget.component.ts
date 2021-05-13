@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { finalize } from 'rxjs/operators';
 import { SessionService } from 'src/app/core/http/session/session.service';
 import { ISession } from 'src/app/shared/interfaces/isession';
 import { AlpacaAccount } from 'src/app/shared/models/alpaca-account';
@@ -10,7 +11,7 @@ import { AlpacaAccount } from 'src/app/shared/models/alpaca-account';
 })
 export class AccountWidgetComponent implements OnInit, OnChanges {
   @Input() session!: ISession;
-  account!: AlpacaAccount;
+  account: AlpacaAccount | undefined;
   isLoading = true;
   constructor(private sessionService: SessionService) { }
   ngOnChanges(changes: SimpleChanges): void {
@@ -23,7 +24,10 @@ export class AccountWidgetComponent implements OnInit, OnChanges {
 
   getAccount() {
     this.isLoading = true;
-    this.sessionService.getAccount(this.session.id).subscribe(account => {
+    this.account = undefined;
+    this.sessionService.getAccount(this.session.id).pipe(
+      finalize(() => this.isLoading = false)
+    ).subscribe(account => {
       this.account = account;
       this.isLoading = false;
     });

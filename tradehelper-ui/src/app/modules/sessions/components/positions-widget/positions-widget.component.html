@@ -1,5 +1,5 @@
-<h2>Positions</h2>
 <div class="widget-container">
+    <h2>Positions</h2>
     <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
     <div class="table-container">
         <table mat-table [dataSource]="filteredAndPagedItems" class="table" matSort matSortDisableClear matSortDirection="desc" (matSortChange)="resetPaging()">

@@ -66,7 +66,7 @@ export class SessionService {
   getPositions(id: string): Observable<AlpacaPosition[]> {
     return this.http.get<AlpacaPosition[]>(this.ALPACA_URL + "/positions?id=" + id)
       .pipe(
-        map((data: any[]) => data.map((item) => this.positionAdapter.adapt(item)))
+        map((data: AlpacaPosition[]) => data.map((item) => this.positionAdapter.adapt(item)))
       ).pipe(
         catchError(this.errorHandler.handle)
       );
@@ -75,7 +75,7 @@ export class SessionService {
   getOrders(id: string, type: string): Observable<Order[]> {
     return this.http.get<Order[]>(this.ALPACA_URL + "/orders/" + type + "?id=" + id)
       .pipe(
-        map((data: any[]) => data.map((item) => this.orderAdapter.adapt(item)))
+        map((data: Order[]) => data.map((item) => this.orderAdapter.adapt(item)))
       ).pipe(
         catchError(this.errorHandler.handle)
       );
