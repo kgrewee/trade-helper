@@ -2,8 +2,6 @@ package com.tradehelper.api.models;
 
 import java.io.Serializable;
 
-import com.tradehelper.api.enums.Exchange;
-
 public class BinanceSession extends Session implements Serializable {
 	private String key;
 	private String secret;

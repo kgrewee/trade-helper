@@ -1,7 +1,5 @@
 package com.tradehelper.api.models;
 
-import com.tradehelper.api.enums.Exchange;
-
 public abstract class Session {
     private String id;
     private String name;

@@ -2,9 +2,10 @@ package com.tradehelper.api.controllers;
 
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
-import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,6 +29,7 @@ import net.jacobpeterson.domain.alpaca.position.Position;
  *
  */
 @RestController
+@RequestMapping("alpaca")
 public class AlpacaController {
 
 	/**
@@ -35,9 +37,9 @@ public class AlpacaController {
 	 * 
 	 * @return Welcome message
 	 */
-	@RequestMapping("/")
+	@RequestMapping("")
 	public String index() {
-		return "Welcome to TradeHelper API";
+		return "Welcome to TradeHelper Alpaca API";
 	}
 
 	/**
@@ -109,55 +111,35 @@ public class AlpacaController {
 	}
 
 	/**
-	 * Get all orders
+	 * Get orders by type
 	 * 
 	 * @return List of alpaca orders
 	 */
-	@RequestMapping("/orders/all")
-	public List<Order> getOrders() throws Exception {
-
+	@GetMapping("/orders/{type}")
+	public List<Order> getOrders(@PathVariable String type) throws Exception {
 		try {
-			return PropertiesUtility.getAlpacaAPI().getOrders(OrderStatus.ALL, null,
-					ZonedDateTime.of(2020, 12, 23, 0, 0, 0, 0, ZoneId.of("America/New_York")), null, null, true,
-					Arrays.asList("AAPL", "TSLA"));
-		} catch (AlpacaAPIRequestException e) {
-			throw new AlpacaException("Can't reach alpaca.  Check credentials in alpaca.properties", e);
-		} catch (Exception e) {
-			throw new MissingPropertiesFileException("Can't find alpaca.properties", e);
-		}
-	}
+			switch (type) {
+			case "all":
+			case "ALL":
+				return PropertiesUtility.getAlpacaAPI().getOrders(OrderStatus.ALL, null,
+						ZonedDateTime.of(2020, 12, 23, 0, 0, 0, 0, ZoneId.of("America/New_York")), null, null, true,
+						null);
+			case "closed":
+			case "CLOSED":
+				return PropertiesUtility.getAlpacaAPI().getOrders(OrderStatus.CLOSED, null,
+						ZonedDateTime.of(2020, 12, 23, 0, 0, 0, 0, ZoneId.of("America/New_York")), null, null, true,
+						null);
+			case "open":
+			case "OPEN":
+				return PropertiesUtility.getAlpacaAPI().getOrders(OrderStatus.OPEN, null,
+						ZonedDateTime.of(2020, 12, 23, 0, 0, 0, 0, ZoneId.of("America/New_York")), null, null, true,
+						null);
+			default:
+				return PropertiesUtility.getAlpacaAPI().getOrders(OrderStatus.ALL, null,
+						ZonedDateTime.of(2020, 12, 23, 0, 0, 0, 0, ZoneId.of("America/New_York")), null, null, true,
+						null);
+			}
 
-	/**
-	 * Get open orders
-	 * 
-	 * @return List of alpaca orders
-	 */
-	@RequestMapping("/orders/open")
-	public List<Order> getOpenOrders() throws Exception {
-
-		try {
-			return PropertiesUtility.getAlpacaAPI().getOrders(OrderStatus.OPEN, null,
-					ZonedDateTime.of(2020, 12, 23, 0, 0, 0, 0, ZoneId.of("America/New_York")), null, null, true,
-					Arrays.asList("AAPL", "TSLA"));
-		} catch (AlpacaAPIRequestException e) {
-			throw new AlpacaException("Can't reach alpaca.  Check credentials in alpaca.properties", e);
-		} catch (Exception e) {
-			throw new MissingPropertiesFileException("Can't find alpaca.properties", e);
-		}
-	}
-
-	/**
-	 * Get closed orders
-	 * 
-	 * @return List of alpaca orders
-	 */
-	@RequestMapping("/orders/closed")
-	public List<Order> getClosedOrders() throws Exception {
-
-		try {
-			return PropertiesUtility.getAlpacaAPI().getOrders(OrderStatus.CLOSED, null,
-					ZonedDateTime.of(2020, 12, 23, 0, 0, 0, 0, ZoneId.of("America/New_York")), null, null, true,
-					Arrays.asList("AAPL", "TSLA"));
 		} catch (AlpacaAPIRequestException e) {
 			throw new AlpacaException("Can't reach alpaca.  Check credentials in alpaca.properties", e);
 		} catch (Exception e) {

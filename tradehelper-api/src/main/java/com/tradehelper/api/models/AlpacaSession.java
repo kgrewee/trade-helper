@@ -2,8 +2,6 @@ package com.tradehelper.api.models;
 
 import java.io.Serializable;
 
-import com.tradehelper.api.enums.Exchange;
-
 import net.jacobpeterson.alpaca.enums.api.DataAPIType;
 import net.jacobpeterson.alpaca.enums.api.EndpointAPIType;
 
