@@ -1,3 +1,4 @@
+import { Injectable } from "@angular/core";
 import { AlpacaDataType } from "../enums/alpacadatatype";
 import { AlpacaEndpointType } from "../enums/alpacaendpointtype";
 import { Exchange } from "../enums/exchange";
@@ -16,6 +17,9 @@ export class AlpacaSession implements ISession {
     ) { }
 }
 
+@Injectable({
+    providedIn: "root"
+})
 export class AlpacaSessionAdapter implements Adapter<AlpacaSession> {
     /**
      * Adapts item to Alpaca Session

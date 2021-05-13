@@ -1,8 +1,5 @@
 <div class="sessions">
-    <a class="session session-link" routerLink="/session/1" routerLinkActive="session-active">Session 1</a>
-    <a class="session session-link" routerLink="/session/2" routerLinkActive="session-active">Session 2</a>
-    <a class="session session-link" routerLink="/session/3" routerLinkActive="session-active">Session 3</a>
-    <a class="session session-link " routerLink="/session/4" routerLinkActive="session-active">Session 4</a>
+    <a *ngFor="let session of sessions" class="session session-link" routerLink="/session/{{session.id}}" routerLinkActive="session-active">Session {{session.id}}</a>
     <a class="session" routerLink="/session/create" matTooltip="Create new session">
         <mat-icon>add_circle_outline</mat-icon>
     </a>
