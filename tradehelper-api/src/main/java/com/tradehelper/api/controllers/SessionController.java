@@ -3,9 +3,9 @@ package com.tradehelper.api.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tradehelper.api.exceptions.SessionException;
@@ -38,7 +38,7 @@ public class SessionController {
 	}
 
 	@PostMapping("alpaca/create")
-	public Session createAlpaca(@PathVariable AlpacaSession session) throws Exception {
+	public Session createAlpaca(@RequestBody AlpacaSession session) throws Exception {
 		try {
 			sessionService.createSession(session);
 		} catch (Exception e) {
@@ -48,7 +48,7 @@ public class SessionController {
 	}
 
 	@PostMapping("binance/create")
-	public Session createBianance(@PathVariable BinanceSession session) throws Exception {
+	public Session createBianance(@RequestBody BinanceSession session) throws Exception {
 		try {
 			sessionService.createSession(session);
 		} catch (Exception e) {
@@ -58,7 +58,7 @@ public class SessionController {
 	}
 
 	@DeleteMapping("delete/{id}")
-	public void delete(@RequestParam String id) throws Exception {
+	public void delete(@PathVariable String id) throws Exception {
 		try {
 			sessionService.deleteSession(id);
 		} catch (Exception e) {
