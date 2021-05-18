@@ -1,3 +1,4 @@
+import { Injectable } from "@angular/core";
 import { Exchange } from "../enums/exchange";
 import { ISession } from "../interfaces/isession";
 import { Adapter } from "./adapter";
@@ -12,6 +13,9 @@ export class BinanceSession implements ISession {
     ) { }
 }
 
+@Injectable({
+    providedIn: "root"
+})
 export class BinanceSessionAdapter implements Adapter<BinanceSession> {
     /**
      * Adapts item to Binance Session

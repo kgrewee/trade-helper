@@ -1,5 +1,5 @@
 <div class="sessions">
-    <a *ngFor="let session of sessions" class="session session-link" routerLink="/session/{{session.id}}" routerLinkActive="session-active">Session {{session.id}}</a>
+    <a *ngFor="let session of sessions" class="session session-link" routerLink="/session/{{session.id}}" routerLinkActive="session-active">Session {{session.name}}</a>
     <a class="session" routerLink="/session/create" matTooltip="Create new session">
         <mat-icon>add_circle_outline</mat-icon>
     </a>

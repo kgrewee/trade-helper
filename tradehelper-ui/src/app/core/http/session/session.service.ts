@@ -38,6 +38,7 @@ export class SessionService {
   }
 
   create(session: ISession): Observable<ISession> {
+    console.log(session);
     if(session.exchange == Exchange.ALPACA){
       return this.http.post<ISession>(this.SESSION_URL + "/alpaca/create", session)
       .pipe(
@@ -56,8 +57,8 @@ export class SessionService {
     return of();
   }
 
-  delete(id: string): Observable<ISession> {
-    return this.http.delete<ISession>(this.SESSION_URL +  "/" + id)
+  delete(id: string) {
+    this.http.delete<ISession>(this.SESSION_URL +  "/" + id)
     .pipe(
       map((item) => this.sessionAdapter.adapt(item))
     ).pipe(

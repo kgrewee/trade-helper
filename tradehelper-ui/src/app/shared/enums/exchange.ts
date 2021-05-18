@@ -1,6 +1,6 @@
 export enum Exchange {
-    ALPACA = "Alpaca",
-    BINANCE = "Binance",
+    ALPACA = "ALPACA",
+    BINANCE = "BINANCE",
     TDA = "TDA",
-    DEFAULT = "Alpaca"
+    DEFAULT = "ALPACA"
 }

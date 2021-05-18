@@ -26,13 +26,11 @@
     <mat-divider></mat-divider>
     <div class="form-container">
         <mat-radio-group aria-label="Select an option" [(ngModel)]="exchange">
-            <mat-radio-button value="alpaca"><span>Alpaca</span></mat-radio-button>
-            <mat-radio-button value="binance"><span>Binance</span></mat-radio-button>
-            <mat-radio-button value="tda"><span>TDA</span></mat-radio-button>
+            <mat-radio-button *ngFor="let exchange of exchangeList" value="{{exchange.value}}"><span>{{exchange.viewValue}}</span></mat-radio-button>
         </mat-radio-group>
     </div>
 
-    <div class="form-container" *ngIf="exchange === 'alpaca'">
+    <div class="form-container" *ngIf="exchange === 'ALPACA'">
         <mat-form-field class="form-field">
             <mat-label>API Key</mat-label>
             <input matInput type="text" [(ngModel)]="apikey">
@@ -49,24 +47,26 @@
             </button>
         </mat-form-field>
 
-        <mat-form-field class="form-field">
-            <mat-label>Base API URL</mat-label>
-            <input matInput type="text" [(ngModel)]="baseapi">
-            <button mat-button *ngIf="baseapi" matSuffix mat-icon-button aria-label="Clear" (click)="baseapi=''">
-              <mat-icon>close</mat-icon>
-            </button>
+        <mat-form-field appearance="fill" class="form-field">
+            <mat-label>API</mat-label>
+            <mat-select [(ngModel)]="baseapi" name="api">
+                <mat-option *ngFor="let api of apiList" [value]="api.value">
+                    {{api.viewValue}}
+                </mat-option>
+            </mat-select>
         </mat-form-field>
 
-        <mat-form-field class="form-field">
-            <mat-label>Data API URL</mat-label>
-            <input matInput type="text" [(ngModel)]="dataapi">
-            <button mat-button *ngIf="dataapi" matSuffix mat-icon-button aria-label="Clear" (click)="dataapi=''">
-              <mat-icon>close</mat-icon>
-            </button>
+        <mat-form-field appearance="fill" class="form-field">
+            <mat-label>DATA</mat-label>
+            <mat-select [(ngModel)]="dataapi" name="data">
+                <mat-option *ngFor="let data of dataList" [value]="data.value">
+                    {{data.viewValue}}
+                </mat-option>
+            </mat-select>
         </mat-form-field>
     </div>
 
-    <div class="form-container" *ngIf="exchange === 'binance'">
+    <div class="form-container" *ngIf="exchange === 'BINANCE'">
         <mat-form-field class="form-field">
             <mat-label>API Key</mat-label>
             <input matInput type="text" [(ngModel)]="apikey">
@@ -84,7 +84,7 @@
         </mat-form-field>
     </div>
 
-    <div class="form-container" *ngIf="exchange === 'tda'">
+    <div class="form-container" *ngIf="exchange === 'TDA'">
         <mat-form-field class="form-field">
             <mat-label>Client ID</mat-label>
             <input matInput type="text" [(ngModel)]="clientid">
@@ -103,8 +103,7 @@
     </div>
 
     <div class="button-container">
-        <button mat-raised-button class="reset-button" (click)="clear()">Clear</button>
-        <button mat-raised-button class="save-button">Create</button>
+        <button mat-raised-button class="reset-button" (click)="clear()" type="button">Clear</button>
+        <button mat-raised-button class="save-button" type="submit" (click)="submit()">Create</button>
     </div>
-
 </div>
