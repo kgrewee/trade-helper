@@ -68,9 +68,10 @@ public class SessionController {
 	}
 
 	@DeleteMapping("{id}")
-	public void delete(@PathVariable String id) throws Exception {
+	public Session delete(@PathVariable String id) throws Exception {
 		try {
 			sessionService.deleteSession(id);
+			return new BinanceSession();
 		} catch (Exception e) {
 			throw new SessionException("Can't delete session", e);
 		}
