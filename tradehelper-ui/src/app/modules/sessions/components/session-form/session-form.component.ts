@@ -21,8 +21,8 @@ export class SessionFormComponent implements OnInit {
   desc = '';
   apikey = '';
   secretkey = '';
-  baseapi = '';
-  dataapi = '';
+  baseapi = 'PAPER';
+  dataapi = 'IEX';
   clientid = '';
   oauth = '';
 

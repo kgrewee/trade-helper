@@ -43,6 +43,10 @@ h2 {
     }
 }
 
+::ng-deep .mat-select-value {
+    color: #5c6061;
+}
+
 // End Mat Form Field
 .mat-radio-button {
     margin: 10px;

@@ -57,11 +57,12 @@ export class SessionService {
     return of();
   }
 
-  delete(id: string) {
-    this.http.delete<ISession>(this.SESSION_URL +  "/" + id)
+  delete(id: string) : Observable<ISession>{
+    return this.http.delete<ISession>(this.SESSION_URL +  "/" + id)
     .pipe(
       map((item) => this.sessionAdapter.adapt(item))
-    ).pipe(
+    )
+    .pipe(
       catchError(this.errorHandler.handle)
     );
   }

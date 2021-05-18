@@ -7,3 +7,6 @@
         <app-positions-widget [session]="session"></app-positions-widget>
     </div>
 </div>
+<div *ngIf="!session">
+    <h1>Session does not exist</h1>
+</div>
