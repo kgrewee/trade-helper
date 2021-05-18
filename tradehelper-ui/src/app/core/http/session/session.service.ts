@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
+import { Exchange } from 'src/app/shared/enums/exchange';
 import { ISession, SessionAdapter } from 'src/app/shared/interfaces/isession';
 import { AlpacaAccount, AlpacaAccountAdapter } from 'src/app/shared/models/alpaca-account';
 import { AlpacaPosition, AlpacaPositionAdapter } from 'src/app/shared/models/alpaca-position';
@@ -34,6 +35,34 @@ export class SessionService {
       ).pipe(
         catchError(this.errorHandler.handle)
       );
+  }
+
+  create(session: ISession): Observable<ISession> {
+    if(session.exchange == Exchange.ALPACA){
+      return this.http.post<ISession>(this.SESSION_URL + "/alpaca/create", session)
+      .pipe(
+        map((item) => this.sessionAdapter.adapt(item))
+      ).pipe(
+        catchError(this.errorHandler.handle)
+      );
+    }else if(session.exchange == Exchange.BINANCE){
+      return this.http.post<ISession>(this.SESSION_URL + "/binance/create", session)
+      .pipe(
+        map((item) => this.sessionAdapter.adapt(item))
+      ).pipe(
+        catchError(this.errorHandler.handle)
+      );
+    }
+    return of();
+  }
+
+  delete(id: string): Observable<ISession> {
+    return this.http.delete<ISession>(this.SESSION_URL +  "/" + id)
+    .pipe(
+      map((item) => this.sessionAdapter.adapt(item))
+    ).pipe(
+      catchError(this.errorHandler.handle)
+    );
   }
 
   getAll(): Observable<ISession[]> {
