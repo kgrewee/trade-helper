@@ -1,0 +1,109 @@
+<h1>New Session</h1>
+<div class="session-form-container">
+    <h2>Information</h2>
+    <mat-divider></mat-divider>
+    <div class="form-container">
+        <mat-form-field class="form-field">
+            <mat-label>Name</mat-label>
+            <input matInput type="text" [(ngModel)]="name">
+            <button mat-button *ngIf="name" matSuffix mat-icon-button aria-label="Clear" (click)="name=''">
+          <mat-icon>close</mat-icon>
+        </button>
+        </mat-form-field>
+    </div>
+
+    <div class="form-container">
+        <mat-form-field class="form-field textarea">
+            <mat-label>Description</mat-label>
+            <textarea matInput [(ngModel)]="desc"></textarea>
+            <button mat-button *ngIf="desc" matSuffix mat-icon-button aria-label="Clear" (click)="desc=''">
+    <mat-icon>close</mat-icon>
+  </button>
+        </mat-form-field>
+    </div>
+
+    <h2>Exchange</h2>
+    <mat-divider></mat-divider>
+    <div class="form-container">
+        <mat-radio-group aria-label="Select an option" [(ngModel)]="exchange">
+            <mat-radio-button *ngFor="let exchange of exchangeList" value="{{exchange.value}}"><span>{{exchange.viewValue}}</span></mat-radio-button>
+        </mat-radio-group>
+    </div>
+
+    <div class="form-container" *ngIf="exchange === 'ALPACA'">
+        <mat-form-field class="form-field">
+            <mat-label>API Key</mat-label>
+            <input matInput type="text" [(ngModel)]="apikey">
+            <button mat-button *ngIf="apikey" matSuffix mat-icon-button aria-label="Clear" (click)="apikey=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+            <mat-label>Secret Key</mat-label>
+            <input matInput type="text" [(ngModel)]="secretkey">
+            <button mat-button *ngIf="secretkey" matSuffix mat-icon-button aria-label="Clear" (click)="secretkey=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="form-field">
+            <mat-label>API</mat-label>
+            <mat-select [(ngModel)]="baseapi" name="api">
+                <mat-option *ngFor="let api of apiList" [value]="api.value">
+                    {{api.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="form-field">
+            <mat-label>DATA</mat-label>
+            <mat-select [(ngModel)]="dataapi" name="data">
+                <mat-option *ngFor="let data of dataList" [value]="data.value">
+                    {{data.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="form-container" *ngIf="exchange === 'BINANCE'">
+        <mat-form-field class="form-field">
+            <mat-label>API Key</mat-label>
+            <input matInput type="text" [(ngModel)]="apikey">
+            <button mat-button *ngIf="apikey" matSuffix mat-icon-button aria-label="Clear" (click)="apikey=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+            <mat-label>Secret Key</mat-label>
+            <input matInput type="text" [(ngModel)]="secretkey">
+            <button mat-button *ngIf="secretkey" matSuffix mat-icon-button aria-label="Clear" (click)="secretkey=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
+
+    <div class="form-container" *ngIf="exchange === 'TDA'">
+        <mat-form-field class="form-field">
+            <mat-label>Client ID</mat-label>
+            <input matInput type="text" [(ngModel)]="clientid">
+            <button mat-button *ngIf="clientid" matSuffix mat-icon-button aria-label="Clear" (click)="clientid=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+            <mat-label>OAuth Token</mat-label>
+            <input matInput type="text" [(ngModel)]="oauth">
+            <button mat-button *ngIf="oauth" matSuffix mat-icon-button aria-label="Clear" (click)="oauth=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
+
+    <div class="button-container">
+        <button mat-raised-button class="reset-button" (click)="clear()" type="button">Clear</button>
+        <button mat-raised-button class="save-button" type="submit" (click)="submit()">Create</button>
+    </div>
+</div>

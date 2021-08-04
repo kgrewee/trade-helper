@@ -1,0 +1,15 @@
+<div *ngIf="session">
+    <h1>Session {{session.name}}</h1>
+    <div class="action-container">
+        <button mat-button class="delete-button" (click)="delete(session.id)">Delete</button>
+    </div>
+    <div>
+        <app-clock-widget [session]="session"></app-clock-widget>
+        <app-account-widget [session]="session"></app-account-widget>
+        <app-orders-widget [session]="session"></app-orders-widget>
+        <app-positions-widget [session]="session"></app-positions-widget>
+    </div>
+</div>
+<div *ngIf="!session">
+    <h1>Session does not exist</h1>
+</div>
