@@ -4,6 +4,7 @@ import { AlpacaSessionAdapter } from 'src/app/shared/models/alpaca-session';
 import { v4 as uuidv4 } from 'uuid';
 import { BinanceSessionAdapter } from 'src/app/shared/models/binance-session';
 import { Exchange } from 'src/app/shared/enums/exchange';
+import { Router } from '@angular/router';
 
 interface Option {
   value: string;
@@ -32,7 +33,8 @@ export class SessionFormComponent implements OnInit {
 
   constructor(private sessionService: SessionService,
     private alpacaSessionAdapter: AlpacaSessionAdapter,
-    private binanceSessionAdapter: BinanceSessionAdapter) { }
+    private binanceSessionAdapter: BinanceSessionAdapter,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -58,7 +60,7 @@ export class SessionFormComponent implements OnInit {
           apiType: this.baseapi,
           dataType: this.dataapi
         })).subscribe(result => {
-          
+          this.router.navigateByUrl("session/"+ result.id);
         });
         break;
       case "BINANCE":
@@ -66,7 +68,7 @@ export class SessionFormComponent implements OnInit {
           id: uuidv4(), name: this.name, exchange: Exchange.BINANCE, desc: this.desc, key: this.apikey,
           secret: this.secretkey
         })).subscribe(result => {
-
+          this.router.navigateByUrl("session/"+ result.id);
         });
         break;
       default:
