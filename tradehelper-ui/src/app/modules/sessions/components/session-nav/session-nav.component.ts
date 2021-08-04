@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SessionService } from 'src/app/core/http/session/session.service';
+import { RefreshService } from 'src/app/core/services/refresh/refresh.service';
 import { ISession } from 'src/app/shared/interfaces/isession';
 
 @Component({
@@ -11,24 +12,17 @@ import { ISession } from 'src/app/shared/interfaces/isession';
 export class SessionNavComponent implements OnInit {
   sessions: ISession[] = [];
 
-  constructor(private sessionService: SessionService, private router: Router) { }
+  constructor(private sessionService: SessionService, private router: Router, private refreshService: RefreshService) { }
 
   ngOnInit(): void {
+    this.refreshService.refresh.subscribe(refresh => {
+      this.getSessions();
+    })
+  }
+
+  getSessions() {
     this.sessionService.getAll().subscribe(sessions => {
       this.sessions = sessions;
     });
   }
-
-  delete(id: string){
-    this.sessionService.delete(id).subscribe(result => {
-      console.log("deleted");
-      if(this.sessions.length > 0){
-        this.router.navigateByUrl("/session/" + this.sessions[0].id);
-      }else{
-        this.router.navigateByUrl("/session/create");
-      }
-     
-    });
-  }
-
 }

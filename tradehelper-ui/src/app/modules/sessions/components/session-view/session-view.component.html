@@ -1,5 +1,8 @@
 <div *ngIf="session">
     <h1>Session {{session.name}}</h1>
+    <div class="action-container">
+        <button mat-button (click)="delete(session.id)">Delete</button>
+    </div>
     <div>
         <app-clock-widget [session]="session"></app-clock-widget>
         <app-account-widget [session]="session"></app-account-widget>

@@ -34,11 +34,11 @@ public class SessionService {
 			switch (prop.getProperty("exchange")) {
 			case "ALPACA":
 				s = new AlpacaSession(prop.getProperty("id"), prop.getProperty("name"), Exchange.ALPACA,
-						prop.getProperty("key_id"), prop.getProperty("secret"), EndpointAPIType.PAPER, DataAPIType.IEX);
+						prop.getProperty("key"), prop.getProperty("secret"), EndpointAPIType.PAPER, DataAPIType.IEX);
 				break;
 			case "BINANCE":
 				s = new BinanceSession(prop.getProperty("id"), prop.getProperty("name"), Exchange.BINANCE,
-						prop.getProperty("key_id"), prop.getProperty("secret"));
+						prop.getProperty("key"), prop.getProperty("secret"));
 				break;
 			default:
 
@@ -62,12 +62,12 @@ public class SessionService {
 				switch (prop.getProperty("exchange")) {
 				case "ALPACA":
 					sessions.add(new AlpacaSession(prop.getProperty("id"), prop.getProperty("name"), Exchange.ALPACA,
-							prop.getProperty("key_id"), prop.getProperty("secret"), EndpointAPIType.PAPER,
+							prop.getProperty("key"), prop.getProperty("secret"), EndpointAPIType.PAPER,
 							DataAPIType.IEX));
 					break;
 				case "BINANCE":
 					sessions.add(new BinanceSession(prop.getProperty("id"), prop.getProperty("name"), Exchange.BINANCE,
-							prop.getProperty("key_id"), prop.getProperty("secret")));
+							prop.getProperty("key"), prop.getProperty("secret")));
 					break;
 				default:
 
@@ -87,7 +87,7 @@ public class SessionService {
 			props.put("id", session.getId());
 			props.put("exchange", session.getExchange().toString());
 			props.put("name", session.getName());
-			props.put("key_id", session.getKey());
+			props.put("key", session.getKey());
 			props.put("secret", session.getSecret());
 			props.put("base_api_url", session.getApiType().toString());
 			props.put("base_data_url", session.getDataType().toString());
@@ -108,7 +108,7 @@ public class SessionService {
 			props.put("id", session.getId());
 			props.put("exchange", session.getExchange().toString());
 			props.put("name", session.getName());
-			props.put("key_id", session.getKey());
+			props.put("key", session.getKey());
 			props.put("secret", session.getSecret());
 
 			String path = session.getId() + ".session";
