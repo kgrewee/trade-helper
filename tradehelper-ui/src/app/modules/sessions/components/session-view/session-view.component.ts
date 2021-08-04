@@ -28,6 +28,7 @@ export class SessionViewComponent implements OnInit {
     this.sessionService.delete(id).subscribe(result => {
       console.log("deleted");
       this.refreshService.refresh.next(true);
+      this.refreshService.firstSession.next(true);
     });
   }
 

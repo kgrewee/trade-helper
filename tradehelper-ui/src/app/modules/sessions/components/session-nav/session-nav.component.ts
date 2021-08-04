@@ -17,6 +17,7 @@ export class SessionNavComponent implements OnInit {
   ngOnInit(): void {
     this.refreshService.refresh.subscribe(refresh => {
       this.getSessions();
+      this.firstSession();
     })
   }
 
@@ -24,5 +25,13 @@ export class SessionNavComponent implements OnInit {
     this.sessionService.getAll().subscribe(sessions => {
       this.sessions = sessions;
     });
+  }
+
+  firstSession(){
+    this.refreshService.firstSession.subscribe(first => {
+      if(this.sessions.length > 0){
+        this.router.navigateByUrl("/session/" + this.sessions[0].id);
+      }
+    })
   }
 }

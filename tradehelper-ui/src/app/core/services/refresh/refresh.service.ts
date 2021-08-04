@@ -6,5 +6,6 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class RefreshService {
   refresh = new BehaviorSubject(false);
+  firstSession = new BehaviorSubject(false);
   constructor() { }
 }
