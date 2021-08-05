@@ -9,7 +9,6 @@ import { HeaderInterceptor } from './interceptors/header/header.interceptor';
 import { AuthInterceptor } from './interceptors/auth/auth.interceptor';
 
 
-
 @NgModule({
   declarations: [HeaderComponent],
   imports: [

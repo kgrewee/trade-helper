@@ -1,0 +1,9 @@
+.clock-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.time span {
+    color: rgb(172, 172, 172);
+}

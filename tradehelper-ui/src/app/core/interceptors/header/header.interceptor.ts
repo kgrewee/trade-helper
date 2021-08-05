@@ -16,7 +16,7 @@ export class HeaderInterceptor implements HttpInterceptor {
     if (!req.headers.has('Content-Type')) {
       req = req.clone({ headers: req.headers.set('Content-Type', 'application/json') });
     }
-    //console.log(req);
+    console.log(req);
     return next.handle(req);
   }
 }

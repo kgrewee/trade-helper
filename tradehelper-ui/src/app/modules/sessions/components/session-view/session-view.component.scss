@@ -1,0 +1,15 @@
+h2 {
+    margin: 5px;
+}
+
+.action-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 15px;
+}
+
+.delete-button {
+    background-color: rgb(195, 0, 0);
+    color: black;
+}

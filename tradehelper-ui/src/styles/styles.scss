@@ -24,9 +24,23 @@ $tradehelper-theme: mat-light-theme(( color: ( primary: $tradehelper-primary, ac
 /* You can add global styles to this file, and also import other style files */
 
 @import "dark-theme";
+// Chrome scrollbar styles
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: white;
+}
+
 .header {
     position: fixed;
-    z-index: 1;
+    z-index: 5;
     left: 0;
     top: 0;
     right: 0;
@@ -37,6 +51,14 @@ $tradehelper-theme: mat-light-theme(( color: ( primary: $tradehelper-primary, ac
     flex-direction: row;
 }
 
+.sessions {
+    width: 100%;
+    background: rgb(36, 35, 35);
+    color: $white;
+    display: flex;
+    flex-direction: column;
+}
+
 .logo {
     text-decoration: none;
     color: $white;
@@ -45,22 +67,29 @@ $tradehelper-theme: mat-light-theme(( color: ( primary: $tradehelper-primary, ac
     margin-right: 40px;
 }
 
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
 h1 {
     color: $accent;
     text-align: center;
 }
 
-h2 {
+h2,
+h3 {
     color: #d1d1d1;
+}
+
+html {
+    scrollbar-color: rgb(54, 54, 54) rgba(0, 0, 0, 0.2);
 }
 
 body {
     padding: 15px;
     margin-top: 60px;
     height: calc(100% - 60px);
-}
-
-body {
     background-color: $background;
 }
 
@@ -75,7 +104,7 @@ body {
 
 mat-divider {
     width: 100%;
-    background-color: $nav-background;
+    background-color: black;
 }
 
 // Form styles
@@ -94,7 +123,22 @@ input {
 }
 
 .form-container {
-    padding: 20px;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.widget-container {
+    padding: 15px;
+    background-color: rgba(68, 68, 68, 0.2);
+    box-shadow: 4px 4px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    max-height: 300px;
+    overflow: scroll;
+}
+
+.widget-container h2 {
+    text-align: center;
 }
 
 .home-container {
@@ -119,3 +163,30 @@ input {
     background-color: rgb(39, 202, 39) !important;
     color: black !important;
 }
+
+app-session-form,
+app-session-view {
+    width: 100%;
+}
+
+// Table styling
+.table-container {
+    width: 100%;
+}
+
+.table,
+.paginator {
+    width: 100%;
+    background-color: #1b1b1b;
+    color: lightgray;
+}
+
+.table th {
+    color: white;
+}
+
+.table td {
+    color: lightgray;
+}
+
+// End table styling

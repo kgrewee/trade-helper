@@ -1,0 +1,44 @@
+.session {
+    width: auto;
+    text-align: center;
+    font-size: 1.5em;
+    color: white;
+    padding: 15px;
+    background-color: black;
+}
+
+.session-link {
+    //border: 1px solid rgb(54, 54, 54);
+    background-color: #121212;
+    margin-bottom: 5px;
+}
+
+.sessions {
+    background-color: black;
+}
+
+.session:hover mat-icon {
+    color: lightgray;
+}
+
+.session:hover {
+    color: lightgray;
+    background-color: #202020;
+}
+
+.session-active {
+    background-color: rgb(54, 54, 54, .5);
+}
+
+.delete-button {
+    color: red;
+    float: right;
+    width: 20px;
+    height: 100%;
+    display: none;
+}
+
+.session-link:hover .delete-button {
+    display: inline;
+    border: 1px solid white;
+}
