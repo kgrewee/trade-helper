@@ -28,23 +28,7 @@ Make algo-trading easier with a platform to view more descriptive information ab
 
 ## Install & Run
 
-TradeHelper consists of an Angular User Interface with a Java RestAPI backend.  Both projects are found within this repository.
-
-### Properties
-
-TradeHelper's RestAPI requires various properties files to function.  If they are not created, the backend build will fail.
-```
-- alpaca.properties
-- polygon.properties
-```
-
-Properties files must be located in **src/main/resources**
-
-1. Navigate to src/main/resources and create a copy of the templates for each properties file
-2. Rename and fill with your credentials
-3. Properties files are copied to the same directory as the jar when performing an install
-4. The jar reads the properties files every rest call to allow users to change credentials without restarting the application
-5. Return to the repo root directory
+TradeHelper consists of an Angular User Interface with a Java Backend.  Both projects are found within this repository.
 
 ### Installation Script
 
