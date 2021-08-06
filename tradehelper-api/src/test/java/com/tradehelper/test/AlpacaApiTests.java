@@ -34,7 +34,7 @@ public class AlpacaApiTests {
 	/**
 	 * Gets the account information
 	 */
-	@Test
+	//@Test
 	public void accountTest() {
 		try {
 			Account alpacaAccount = alpacaAPI.getAccount();
@@ -46,7 +46,7 @@ public class AlpacaApiTests {
 		}
 	}
 
-	@Test
+	//@Test
 	public void accountActivityTest() {
 		try {
 			// Print all 'AccountActivity's on 12/23/2020
@@ -68,7 +68,7 @@ public class AlpacaApiTests {
 	/**
 	 * Gets a list of open positions
 	 */
-	@Test
+	//@Test
 	public void openPositionTest() {
 		try {
 			List<Position> positions = alpacaAPI.getOpenPositions();
@@ -81,7 +81,7 @@ public class AlpacaApiTests {
 	/**
 	 * Gets assets
 	 */
-	@Test
+	//@Test
 	public void assetsTest() {
 		try {
 			System.out.println("\n\nAssets: \n");
@@ -97,7 +97,7 @@ public class AlpacaApiTests {
 	 * 
 	 * @throws Exception
 	 */
-	@Test
+	//@Test
 	public void ordersTest() throws Exception {
 		try {
 			// Print all the 'Order's of AAPL and TSLA after 12/23/2020
@@ -114,7 +114,7 @@ public class AlpacaApiTests {
 	/**
 	 * Get bars
 	 */
-	@Test
+	//@Test
 	public void barsTest() {
 		try {
 			// Get hour bars of AAPL from 2/22/2021 at 9:30 AM to 2/24/2021 at 4 PM and
@@ -132,7 +132,7 @@ public class AlpacaApiTests {
 	/**
 	 * Performs a buy
 	 */
-	@Test
+	//@Test
 	public void buyTest() {
 		try {
 			Order aaplLimitOrder = alpacaAPI.requestNewLimitOrder(aaplTicker, 1, OrderSide.BUY, OrderTimeInForce.DAY,
