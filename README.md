@@ -1,7 +1,6 @@
 # TradeHelper
-
 ## Warning
-This project is not maintained or worked on that's why I open sourced it.  It was a first attempt at creating an application to view data from different exchanges all in one place. You can currently add your Alpaca account key and view the information.
+This project is not maintained or worked on that's why I open sourced it.  It is not ready for production.  It was a first attempt at creating an application to view data from different exchanges all in one place. You can currently add your Alpaca account key and view the information.  Session data is saved in an encrypted file on the server.
 
 ## Overview
 Make algo-trading easier with a platform to view more descriptive information about your trading activities.
@@ -28,7 +27,6 @@ TradeHelper consists of an Angular User Interface with a Java Backend.  Both pro
 ```
 
 ### Run Script
-
 1. Run the application
 ```
 ./run.sh
