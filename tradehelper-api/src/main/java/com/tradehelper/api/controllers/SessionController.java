@@ -34,6 +34,7 @@ public class SessionController {
 		try {
 			return sessionService.getSession(id);
 		} catch (Exception e) {
+			e.printStackTrace();
 			throw new SessionException("Can't get sessions", e);
 		}
 	}
@@ -43,6 +44,7 @@ public class SessionController {
 		try {
 			return sessionService.getAllSessions();
 		} catch (Exception e) {
+			e.printStackTrace();
 			throw new SessionException("Can't get sessions", e);
 		}
 	}
@@ -62,6 +64,7 @@ public class SessionController {
 		try {
 			sessionService.createSession(session);
 		} catch (Exception e) {
+			e.printStackTrace();
 			throw new SessionException("Can't create session", e);
 		}
 		return session;
@@ -73,6 +76,7 @@ public class SessionController {
 			sessionService.deleteSession(id);
 			return new BinanceSession();
 		} catch (Exception e) {
+			e.printStackTrace();
 			throw new SessionException("Can't delete session", e);
 		}
 	}

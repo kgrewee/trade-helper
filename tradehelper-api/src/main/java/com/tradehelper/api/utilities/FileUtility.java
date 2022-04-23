@@ -1,9 +1,11 @@
 package com.tradehelper.api.utilities;
 
 import java.io.IOException;
+import java.io.StringWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.Properties;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -27,5 +29,15 @@ public class FileUtility {
 		}
 
 		return result;
+	}
+	
+	public static String getPropertiesAsString(Properties prop) { 
+	    StringWriter writer = new StringWriter();
+	    try {
+	        prop.store(writer, "");
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+	    return writer.getBuffer().toString();
 	}
 }
