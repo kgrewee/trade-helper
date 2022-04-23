@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cd tradehelper-ui/
-ng serve --open
+ng s --open
